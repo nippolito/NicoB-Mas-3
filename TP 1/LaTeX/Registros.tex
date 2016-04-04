@@ -15,8 +15,8 @@
 
 \section{TAD \tadNombre{Registro}}
 
-\begin{tad}{\tadNombre{GeneroTipo}}
-\tadIgualdadObservacionalSimple{($\forall$ $r_1$,$r_2$:reg) ($r_1$ $\igobs$ $r_2$) $\Leftrightarrow$ \Bigg( campos($r_1$) $\igobs$ campos($r_2$) $\yluego$ \bigg(($\forall$ c:Campos) \\ \Big((c $\in$ campos($r_1$))) $\impluego$ \big((Nat?(tipo(c)) $\impluego$ (ValorEn($r_1$, c) $\igobs$ ValorEn($r_2$, c))) $\wedge$ ($\neg$Nat?(tipo(c)) $\impluego$ (PalabraEn($r_1$, c) $\igobs$ PalabraEn($r_2$, c))\big)\Big)\bigg)\Bigg)}
+\begin{tad}{\tadNombre{Registro}}
+\tadIgualdadObservacionalSimple{($\forall$ $r_1$,$r_2$:reg) ($r_1$ $\igobs$ $r_2$) $\Leftrightarrow$ \Bigg( campos($r_1$) $\igobs$ campos($r_2$) $\yluego$ \bigg(($\forall$ c:Campos) \\ \Big((c $\in$ campos($r_1$))) $\impluego$ \big((Nat?(tipo(c)) $\impluego$ (ValorEn($r_1$, c) $\igobs$ ValorEn($r_2$, c))) $\wedge$ \\($\neg$Nat?(tipo(c)) $\impluego$ (PalabraEn($r_1$, c) $\igobs$ PalabraEn($r_2$, c))\big)\Big)\bigg)\Bigg)}
 
 \tadGeneros{reg}
 \tadExporta{reg, generadores, observadores, otras operaciones}
@@ -24,8 +24,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadObservadores
 \tadOperacion{Campos}{reg}{conj(Campo)}{}
-\tadOperacion{ValorEn}{reg$\quad$ r,campo$\quad$ c}{Nat}{Nat?(tipo(c)) $\wedge$ c $\in$ Campos(r)}
-\tadOperacion{PalabraEn}{reg$\quad$ r, campo$\quad$ c}{String}{$\neg$Nat?(tipo(c)) $\wedge$ c $\in$ Campos(r)}
+\tadOperacion{valorEn}{reg$\quad$ r,campo$\quad$ c}{Nat}{Nat?(tipo(c)) $\wedge$ c $\in$ Campos(r)}
+\tadOperacion{palabraEn}{reg$\quad$ r, campo$\quad$ c}{String}{$\neg$Nat?(tipo(c)) $\wedge$ c $\in$ Campos(r)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -48,18 +48,27 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tadAxiomas[\paratodo{reg}{r_1,r_2}, \paratodo{campo}{c}, \paratodo{conj(campo)}{cs}, \paratodo{nat}{n}, \paratodo{string}{s}]
+\tadAxiomas[\paratodo{reg}{r_1,r_2}, \paratodo{campo}{c_1, c_2}, \paratodo{conj(campo)}{cs}, \paratodo{nat}{n}, \paratodo{string}{s}]
 %\tadAlinearAxiomas{bool,nat}
 
 % OB título
 \tadAxioma{campos(nuevoReg)}{$\emptyset$}
 
-\tadAxioma{campos(AgValor($r_1$,c,n)}{Ag(c,campos($r_1$))}
+\tadAxioma{campos(agValor($r_1$,$c_1$,n)}{Ag($c_1$,campos($r_1$))}
 
-\tadAxioma{Nat?(String)}{False}
+\tadAxioma{campos(agPalabra($r_1$,$c_1$,s))}{Ag($c_1$,campos($r_1$))}
+\bigskip
+\tadAxioma{valorEn(agValor($r_1$,$c_1$,n), $c_2$)}{\IF $c_1 \igobs c_2$ THEN n ELSE valorEn($r_1$, $c_2$) FI}
 
-% OB tipo
-\tadAxioma{ElOtro(t)}{\IF Nat?(t) THEN String ELSE Nat FI}
+\tadAxioma{valorEn(agPalabra($r_1$,$c_1$,s),$c_2$)}{valorEn($r_1$,$c_2$)}
+\bigskip
+\tadAxioma{palabraEn(agValor($r_1$, $c_1$,n), $c_2$)}{palabraEn($r_1$, $c_2$)}
+
+\tadAxioma{palabraEn(agPalabra($r_1$,$c_1$,s), $c_2$)}{\IF $c_1 \igobs c_2$ THEN s ELSE palabraEn($r_1$, $c_2$) FI}
+\bigskip
+\tadAxioma{Combinar($r_1,r_2$)}{CombinarDeAcuerdoA($r_1,c_1$,campos($c_2$))}
+\bigskip
+\tadAxioma{CombinarDeAcuerdoA($r_1,r_2$,cs)}{\IF $\emptyset ?$(cs) THEN $r_1$ ELSE {\IF DameUno(c)$\in$campos($r_1$) THEN CombinarDeAcuerdoA($r_1,r_2$, SinUno(cs)) ELSE {\IF Nat?(tipo(DameUno(c))) THEN agValor\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)),DameUno(c), valorEn($r_2$,DameUno(cs))\big) ELSE agPalabra\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)), DameUno(c),palabraEn($r_2$,DameUno(cs))\big) FI} FI} FI}
 
 \end{tad}
 
