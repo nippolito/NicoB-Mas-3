@@ -1,0 +1,66 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[paper=a4paper, left=1.5cm, right=1.5cm, bottom=1.5cm, top=3.5cm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{latexsym}
+\usepackage{lastpage}
+\usepackage{aed2-symb,aed2-itef,aed2-tad}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage{calc}
+
+\begin{document}
+
+\section{TAD \tadNombre{Registro}}
+
+\begin{tad}{\tadNombre{GeneroTipo}}
+\tadIgualdadObservacionalSimple{($\forall$ $r_1$,$r_2$:reg) ($r_1$ $\igobs$ $r_2$) $\Leftrightarrow$ \Bigg( campos($r_1$) $\igobs$ campos($r_2$) $\yluego$ \bigg(($\forall$ c:Campos) \\ \Big((c $\in$ campos($r_1$))) $\impluego$ \big((Nat?(tipo(c)) $\impluego$ (ValorEn($r_1$, c) $\igobs$ ValorEn($r_2$, c))) $\wedge$ ($\neg$Nat?(tipo(c)) $\impluego$ (PalabraEn($r_1$, c) $\igobs$ PalabraEn($r_2$, c))\big)\Big)\bigg)\Bigg)}
+
+\tadGeneros{reg}
+\tadExporta{reg, generadores, observadores, otras operaciones}
+\tadUsa{\tadNombre{Nat}, \tadNombre{String}, \tadNombre{Campo}, \tadNombre{Tipo}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadObservadores
+\tadOperacion{Campos}{reg}{conj(Campo)}{}
+\tadOperacion{ValorEn}{reg$\quad$ r,campo$\quad$ c}{Nat}{Nat?(tipo(c)) $\wedge$ c $\in$ Campos(r)}
+\tadOperacion{PalabraEn}{reg$\quad$ r, campo$\quad$ c}{String}{$\neg$Nat?(tipo(c)) $\wedge$ c $\in$ Campos(r)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadGeneradores
+%\tadAlinearFunciones{Nat?~}{string}
+
+\tadOperacion{NuevoRegistro}{$\bullet$}{reg}{}
+
+\tadOperacion{agValor}{reg $\quad$ r, campo $\quad$ c, nat $\quad$ n}{reg}{c $\notin$ campos(r) $\wedge$ Nat?(tipo(c))}
+\tadOperacion{agPalabra}{reg $\quad$r, campo $\quad$ c, string $\quad$ s}{reg}{c $\notin$ campos(r) $\wedge$ $\neg$Nat?(tipo(c))}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadOtrasOperaciones
+%\tadAlinearFunciones{bool, Tipo}
+
+\tadOperacion{noRepiten}{reg $\quad$ $r_1$, reg $\quad$ $r_2$, campo $\quad$ c }{bool}{	c $\in$ campos($r_1$) $\wedge$ c $\in$ campos($r_2$}
+
+\tadOperacion{Combinar}{reg $\quad$ $r_1$, reg $\quad$ $r_2$}{reg}{	c $\in$ campos($r_1$) $\wedge$ c $\in$ campos($r_2$}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadAxiomas[\paratodo{Tipo}{t}]
+%\tadAlinearAxiomas{bool,nat}
+
+% OB título
+\tadAxioma{Nat?(Nat)}{True}
+
+\tadAxioma{Nat?(String)}{False}
+
+% OB tipo
+\tadAxioma{ElOtro(t)}{\IF Nat?(t) THEN String ELSE Nat FI}
+
+\end{tad}
+
+
+
+
+
+\end{document}
