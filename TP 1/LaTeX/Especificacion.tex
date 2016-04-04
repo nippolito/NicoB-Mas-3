@@ -1,0 +1,61 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[paper=a4paper, left=1.5cm, right=1.5cm, bottom=1.5cm, top=3.5cm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{latexsym}
+\usepackage{lastpage}
+\usepackage{aed2-symb,aed2-itef,aed2-tad}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage{calc}
+
+\begin{document}
+
+\section{TAD \tadNombre{GeneroTipo}}
+
+\begin{tad}{\tadNombre{GeneroTipo}}
+
+\tadIgualdadObservacionalSimple{Nat $=$ Nat $\land$ String $=$ String $\land$ $\neg$ Nat $=$ String $\land$ $\neg$ String $=$ Nat}
+
+\tadGeneros{Tipo}
+\tadExporta{Tipo, generadores, observadores, otras operaciones}
+\tadUsa{\tadNombre{Bool}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadGeneradores
+%\tadAlinearFunciones{Nat?~}{string}
+
+\tadOperacion{Nat}{}{Tipo}{}
+
+\tadOperacion{String}{}{Tipo}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadOtrasOperaciones
+%\tadAlinearFunciones{bool, Tipo}
+
+\tadOperacion{Nat?}{Tipo}{bool}{}
+
+\tadOperacion{ElOtro}{Tipo}{Tipo}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadAxiomas[\paratodo{Tipo}{t}]
+%\tadAlinearAxiomas{bool,nat}
+
+% OB título
+\tadAxioma{Nat?(Nat)}{True}
+
+\tadAxioma{Nat?(String)}{False}
+
+% OB tipo
+\tadAxioma{ElOtro(t)}{\IF Nat?(t) THEN String ELSE Nat FI}
+
+\end{tad}
+
+
+
+
+
+\end{document}
