@@ -52,7 +52,11 @@
 
 \tadOperacion{DameCoincidentesPal}{campo $\quad$ $r$, string $\quad$ $s$, conj(reg) $\quad$ $rs$}{conj(reg)}{$\neg$Nat?(tipo($c$))}
 
-\tadOperacion{noRepiten}{reg $\quad$ $r_1$, reg $\quad$ $r_2$, campo $\quad$ c }{bool}{	c $\in$ campos($r_1$) $\wedge$ c $\in$ campos($r_2$}
+\tadOperacion{noRepiten}{reg $\quad$ $r_1$, reg $\quad$ $r_2$, campo $\quad$ c }{bool}{	c $\in$ campos($r_1$) $\wedge$ c $\in$ campos($r_2$)}
+
+\tadOperacion{AgYCompDefault}{reg $\quad$ r, conj(campo) $\quad$ $cs$}{reg}{}
+
+\tadOperacion{AgregoPorDefault}{reg $\quad$ r, campo $\quad$ c}{reg}{	$\neg$ (c $\in$ campos(r)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadAxiomas[\paratodo{reg}{r_1,r_2}, \paratodo{campo}{c}, \paratodo{conj(campo)}{cs}, \paratodo{nat}{n}, \paratodo{string}{s}, \paratodo{conj(reg)}{rs}]
@@ -88,10 +92,13 @@
 
 \tadAxioma{noRepiten($r_1,r_2$, $c$)}{Nat?(Tipo(c)) $\yluego$ $\neg$ (valorEn($r_1$, c) $\igobs$ valorEn($r_2$, c))) $\vee$ ($\neg$ Nat?(tipo(c)) $\yluego$ $\vee$(palabraEn($r_1$, c) $\igobs$ palabraEn($r_2$, c)))}
 \bigskip
-
 \tadAxioma{DameCoincidentesVal($c,n,rs$)}{\IF $\emptyset ?(rs)$ THEN $\emptyset$ ELSE {\IF ValorEn(DameUno($rs$),$c$)$\igobs n$ THEN Ag\big(DameUno($rs$),DameCoincidentesVal($c$,$n$,SinUno($rs$))\big) ELSE DameCoincidentesVal($c$,$n$,SinUno($rs$)) FI} FI}
-
+\bigskip
 \tadAxioma{DameCoincidentesPal($c,s,rs$)}{\IF $\emptyset ?(rs)$ THEN $\emptyset$ ELSE {\IF PalabraEn(DameUno($rs$),$c$)$\igobs s$ THEN Ag\big(DameUno($rs$),DameCoincidentesPal($c$,$s$,SinUno($rs$))\big) ELSE DameCoincidentesPal($c$,$s$,SinUno($rs$)) FI} FI}
+\bigskip
+\tadAxioma{AgYCompDefault(r,cs)}{\IF $\emptyset$?(cs) THEN NuevoRegistro ELSE {\IF DameUno(cs) $\in$ campos(r) THEN {\IF Nat?(tipo(DameUno(cs))) THEN AgValor\Big(AgYCompDefault\big(r,SinUno(cs)\big),DameUno(cs),\\ValorEn(r,DameUno(cs))\Big) ELSE AgPalabra\Big(AgYCompDefault\big(r,SinUno(cs)\big),DameUno(cs),\\PalabraEn(r,DameUno(cs))\Big) FI} ELSE AgregoPorDefault\big(AgYCompDefault(r,SinUno(cs)),DameUno(cs)\big)FI} FI}
+\bigskip
+\tadAxioma{AgregoPorDefault(r,c)}{\IF Nat?(tipo(c) THEN AgValor(r, c, 0) ELSE AgPalabra(r, c, "Default") FI}
 
 \end{tad}
 

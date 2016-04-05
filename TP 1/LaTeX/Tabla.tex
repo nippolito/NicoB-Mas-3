@@ -50,6 +50,7 @@
 \tadOperacion{borrarValor}{tabla $\quad$ $t$, campo $\quad$ $c$, nat $\quad$ n }{tabla}{Nat?(tipo($c$))}
 \tadOperacion{borrarPalabra}{tabla $\quad$ $t$, campo $\quad$ $c$, string $\quad$ s }{tabla}{$\neg$Nat?(tipo($c$))}
 \tadOperacion{SetearTabla}{conj(campo) $\quad$ $cs$, campo $\quad$ $c$, string $\quad$ s }{tabla}{}
+\tadOperacion{Triggereados}{registro $\quad$ $r$, tabla $\quad$ $t_1$, conj(tabla) $\quad$ $ts$}{tabla}{}
 \tadOperacion{UnirTablas}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ $c$, conj(reg) $\quad$ $rs$}{tabla}{$c\in$ \big(claves($t_1$)$\cap$claves($t_2$)\big)}
 \tadOperacion{VaciarTabla}{tabla $\quad$ $t$, conj(campo) $\quad$ $c$}{tabla}{}
 
