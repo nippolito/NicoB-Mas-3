@@ -36,17 +36,23 @@
 \tadOperacion{NuevaTabla}{campo, string}{tabla}{}
 
 \tadOperacion{AgregarCampo}{tabla $\quad$ t, campo $\quad$ c}{tabla}{}
-\tadOperacion{DefClave}{tabla $\quad$ t, campo $\quad$ c}{tabla}{c $\in$ camposT(t) $\wedge$ ($\forall$ $r_1$, $r_2$ : registro)( $\neg$($r_1$ $\igobs$ $r_2$) $\wedge$ $r_2$ $\in$ registros(t)) $\impluego$ noRepiten($r_1$, $r_2$, c)}
-\tadOperacion{A\~nadirReg}{tabla $\quad$ t, reg $\quad$ r }{tabla}{(campos(r) $\igobs$ camposT(t)) $\wedge$ ($\forall$ c : campo)(c $\in$ claves(t) $\impluego$ (($\forall$ $r_1$ : reg)(($\neg$ $r_1$ $\igobs$ r) $\wedge$ $r_1$ $\in$ registros(t)) $\impluego$ noRepiten(r, $r_1$, c))}
+\tadOperacion{DefClave}{tabla $\quad$ t, campo $\quad$ c}{tabla}{c $\in$ camposT(t) $\wedge$ ($\forall$ $r_1$, $r_2$ : registro)\big($\neg$($r_1$ $\igobs$ $r_2$) $\wedge$ $r_2$ $\in$ registros(t)\big) $\impluego$ noRepiten($r_1$, $r_2$, c)\Big)}
+
+
+\tadOperacion{A\~nadirReg}{tabla $\quad$ t, reg $\quad$ r }{tabla}{(campos(r) $\igobs$ camposT(t)) $\wedge$ ($\forall$ c : campo)\Big(c $\in$ claves(t) $\impluego$ (($\forall$ $r_1$ : reg)\big(($\neg$ ($r_1$ $\igobs$ r) $\wedge$ \\ $r_1$ $\in$ registros(t)) $\impluego$ noRepiten(r, $r_1$, c) \big) \Big)}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadOtrasOperaciones
 %\tadAlinearFunciones{bool, Tipo}
+\tadOperacion{\#AparicionesVal}{tabla $\quad$ $t$, campo $\quad$ $c$, nat $\quad$ n }{nat}{Nat?(tipo($c$))}
+\tadOperacion{\#AparicionesPal}{tabla $\quad$ $t$, campo $\quad$ $c$, string $\quad$ s }{nat}{$\neg$Nat?(tipo($c$))}
+\tadOperacion{borrarValor}{tabla $\quad$ $t$, campo $\quad$ $c$, nat $\quad$ n }{tabla}{Nat?(tipo($c$))}
+\tadOperacion{borrarPalabra}{tabla $\quad$ $t$, campo $\quad$ $c$, string $\quad$ s }{tabla}{$\neg$Nat?(tipo($c$))}
+\tadOperacion{SetearTabla}{conj(campo) $\quad$ $cs$, campo $\quad$ $c$, string $\quad$ s }{tabla}{}
+\tadOperacion{UnirTablas}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ $c$, conj(reg) $\quad$ $rs$}{tabla}{$c\in$ \big(claves($t_1$)$\cap$claves($t_2$)\big)}
+\tadOperacion{VaciarTabla}{tabla $\quad$ $t$, conj(campo) $\quad$ $c$}{tabla}{}
 
-\tadOperacion{noRepiten}{reg $\quad$ $r_1$, reg $\quad$ $r_2$, campo $\quad$ c }{bool}{	c $\in$ campos($r_1$) $\wedge$ c $\in$ campos($r_2$}
-
-\tadOperacion{Combinar}{reg $\quad$ $r_1$, reg $\quad$ $r_2$}{reg}{}
-
-\tadOperacion{CombinarDeAcuerdoA}{reg $\quad$ $r_1$, reg $\quad$ $r_2$, conj(campo) $\quad$ cs}{reg}{}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -57,11 +63,14 @@
 \tadAxioma{campos(nuevoReg)}{$\emptyset$}
 
 \tadAxioma{campos(AgValor($r_1$,c,n)}{Ag(c,campos($r_1$))}
-
-\tadAxioma{Nat?(String)}{False}
-
+\bigskip
 % OB tipo
-\tadAxioma{ElOtro(t)}{\IF Nat?(t) THEN String ELSE Nat FI}
+%\tadAxioma{ElOtro(t)}{\IF Nat?(t) THEN String ELSE Nat FI}
+
+\tadAxioma{SetearTabla($cs,c,s$)}{\IF $\emptyset ?(cs)$ THEN nuevaTabla(c,s) ELSE agregarCampo\big(SetearTabla(SinUno($cs$),c,s),DameUno($cs$)\big) FI}
+\bigskip
+\tadAxioma{VaciarTabla($t,cs$)}{\IF $\emptyset ?(cs)$ THEN nuevaTabla(DameUno(Claves(t)),nombre(t)) ELSE {\IF DameUno($cs$)$\in$Claves($t$) THEN DefClave\Big(A\~nadirReg\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big), DameUno($cs$)\Big) ELSE A\~nadirReg\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big) FI} FI}
+\bigskip
 
 \end{tad}
 
