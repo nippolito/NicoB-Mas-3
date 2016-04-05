@@ -16,7 +16,7 @@
 \section{TAD \tadNombre{Base de Datos}}
 
 \begin{tad}{\tadNombre{Base de Datos}}
-\tadIgualdadObservacionalSimple{}
+\tadIgualdadObservacionalSimple{($\forall$ $b_1$,$b_2$:bdd) ($b_1$ $\igobs$ $b_2$) $\Leftrightarrow$ \Bigg( tablas($b_1$) $\igobs$ tablas($b_2$) $\wedge$ ($\forall$ $t_1$,$t_2$:tabla)($\{$ $t_1$, $t_2$ $\}$ $\in$ tablas($b_1$) $\wedge$ $\{$ $t_1$, $t_2$ $\}$ $\in$ tablas(b2)) camposDeJoin($t_1$,$t_2$,$b_1$) $\igobs$ camposDeJoin($t_1$,$t_2$,$b_2$) $\wedge$  $\qquad$ QueTriggerea?($t_1$,$b_1$) $\igobs$ QueTriggerea?($t_1$,$b_1$)    }
 
 \tadGeneros{bdd}
 \tadExporta{**reg, generadores, observadores, otras operaciones}
@@ -37,16 +37,16 @@
 
 \tadOperacion{AgTabla}{tabla $\quad$ t,bdd $\quad$ b}{bdd}{}
 \tadOperacion{AgJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\wedge$ c $\in$ (claves($t_1$) $\cup$ claves($t_2$))}
-\tadOperacion{DefTrigger}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\wedge$ (claves($t_2$) $\subseteq$ claves($t_1$))}
+\tadOperacion{DefTrigger}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\wedge$ (claves($t_2$) $\subseteq$ claves($t_1$)) $\wedge$ $t_1$ $\neq$ $t_2$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadOtrasOperaciones
 %\tadAlinearFunciones{bool, Tipo}
 
-\tadOperacion{elimJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\wedge$ c $\in$ CamposdeJoin($t_1$, $t_2$, b)}
+\tadOperacion{elimJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\yluego$ c $\in$ CamposdeJoin($t_1$, $t_2$, b)}
 
 \tadOperacion{hayJoin?}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{bool}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b)}
 
-\tadOperacion{verJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{tabla}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\wedge$ c $\in$ CamposdeJoin($t_1$, $t_2$, b)}
+\tadOperacion{verJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{tabla}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\yluego$ c $\in$ CamposdeJoin($t_1$, $t_2$, b)}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -61,10 +61,10 @@
 \tadAxioma{CamposDeJoin($t_1$,$t_2$,AgTabla($t_3$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
 \tadAxioma{CamposDeJoin($t_1$,$t_2$,AgJoin($t_3$,$t_4$,$c$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
 \tadAxioma{CamposDeJoin($t_1$,$t_2$,DefTrigger($t_3$,$t_4$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
-
-
-
-
+\tadAxioma{QueTriggerea?($t_1$,AgTabla($t_2$,$b$))}{QueTriggerea?($t_1$,$b$}
+\tadAxioma{QueTriggerea?($t_1$,AgJoin($t_2$,$t_3$,$c$,$b$))}{QueTriggerea?($t_1$,$b$}
+\tadAxioma{QueTriggerea?($t_1$,DefTrigger($t_2$,$t_3$,$b$))}{\IF $\neg$($t_1$ $\igobs$ $t_2$ $\wedge$ $t_1$ $\igobs$ $t_3$) THEN QueTriggerea?($t_1$,$b$) ELSE {\IF ($t_1$ $\igobs$ $t_2$) THEN Ag($t_3$,QueTriggerea?($t_1$,$b$) ELSE QueTriggerea?($t_1$,$b$) FI} FI}
+\tadAxioma{HayJoin?($t_1$, $t_2$, b)}{\IF $\emptyset$?(camposDeJoin($t_1$, $t_2$, b) THEN false ELSE true FI}
 
 
 
