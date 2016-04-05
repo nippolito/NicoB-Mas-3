@@ -1,0 +1,72 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[paper=a4paper, left=1.5cm, right=1.5cm, bottom=1.5cm, top=3.5cm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{latexsym}
+\usepackage{lastpage}
+\usepackage{aed2-symb,aed2-itef,aed2-tad}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage{calc}
+
+\begin{document}
+
+\section{TAD \tadNombre{Base de Datos}}
+
+\begin{tad}{\tadNombre{Base de Datos}}
+\tadIgualdadObservacionalSimple{}
+
+\tadGeneros{bdd}
+\tadExporta{**reg, generadores, observadores, otras operaciones}
+\tadUsa{\tadNombre{**Nat}, \tadNombre{String}, \tadNombre{Campo}, \tadNombre{Tipo}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadObservadores
+\tadOperacion{Tablas}{bdd}{conj(tabla)}{}
+\tadOperacion{CamposDeJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{conj(campo)}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b)}
+\tadOperacion{QueTriggerea?}{tabla $\quad$ t, bdd $\quad$ b}{conj(tabla)}{t $\in$ tablas(b)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadGeneradores
+%\tadAlinearFunciones{Nat?~}{string}
+
+\tadOperacion{Nuevobdd}{}{bdd}{}
+
+\tadOperacion{AgTabla}{tabla $\quad$ t,bdd $\quad$ b}{bdd}{}
+\tadOperacion{AgJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\wedge$ c $\in$ (claves($t_1$) $\cup$ claves($t_2$))}
+\tadOperacion{DefTrigger}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\wedge$ (claves($t_2$) $\subseteq$ claves($t_1$))}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadOtrasOperaciones
+%\tadAlinearFunciones{bool, Tipo}
+
+\tadOperacion{elimJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\wedge$ c $\in$ CamposdeJoin($t_1$, $t_2$, b)}
+
+\tadOperacion{hayJoin?}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{bool}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b)}
+
+\tadOperacion{verJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{tabla}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\wedge$ c $\in$ CamposdeJoin($t_1$, $t_2$, b)}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadAxiomas[\paratodo{reg}{r_1,r_2}, \paratodo{campo}{c}, \paratodo{conj(campo)}{cs}, \paratodo{nat}{n}, \paratodo{string}{s}]
+%\tadAlinearAxiomas{bool,nat}
+
+% OB título
+\tadAxioma{*****campos(nuevoReg)}{$\emptyset$}
+
+\tadAxioma{campos(AgValor($r_1$,c,n)}{Ag(c,campos($r_1$))}
+
+\tadAxioma{Nat?(String)}{False}
+
+% OB tipo
+\tadAxioma{ElOtro(t)}{\IF Nat?(t) THEN String ELSE Nat FI}
+
+\end{tad}
+
+
+
+
+
+\end{document}

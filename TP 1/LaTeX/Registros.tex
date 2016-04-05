@@ -46,20 +46,42 @@
 
 \tadOperacion{CombinarDeAcuerdoA}{reg $\quad$ $r_1$, reg $\quad$ $r_2$, conj(campo) $\quad$ cs}{reg}{}
 
+\tadOperacion{Coincide?}{conj(reg) $\quad$ rs, reg $\quad$ r, campo $\quad$ c}{bool}{($\forall$ $r_1$ : reg) $r_1$ $\in$ rs $\Rightarrow$(c $\in$ campos($r_1$))}
+
+\tadOperacion{DameCoincidente}{conj(reg) $\quad$ rs, reg $\quad$ r, campo $\quad$ c}{bool}{**(($\forall$ $r_1$ : reg) $r_1$ $\in$ rs $\Rightarrow$(c $\in$ campos($r_1$))) $\wedge$ (Coincide?(rs, r, c))}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadAxiomas[\paratodo{reg}{r_1,r_2}, \paratodo{campo}{c}, \paratodo{conj(campo)}{cs}, \paratodo{nat}{n}, \paratodo{string}{s}]
 %\tadAlinearAxiomas{bool,nat}
 
 % OB título
-\tadAxioma{campos(nuevoReg)}{$\emptyset$}
+\tadAxioma{***campos(nuevoReg)}{$\emptyset$}
+\bigskip
 
 \tadAxioma{campos(AgValor($r_1$,c,n)}{Ag(c,campos($r_1$))}
+\bigskip
 
 \tadAxioma{Nat?(String)}{False}
+\bigskip
 
 % OB tipo
 \tadAxioma{ElOtro(t)}{\IF Nat?(t) THEN String ELSE Nat FI}
+\bigskip
+
+\tadAxioma{Coincide?(rs, r, c)}{\IF $\emptyset$?(rs) THEN false ELSE $\neg$ NoRepiten(DameUno(rs), r, c) $\vee$ Coincide?(SinUno(rs), r, c) FI}
+\bigskip
+
+\tadAxioma{DameCoincidente(rs, r, c)}{\IF NoRepiten(DameUno(rs), r, c) THEN DameCoincidente(SinUno(rs), r, c) ELSE DameUno(rs) FI}
+\bigskip
+
+\tadAxioma{Combinar($r_1,r_2$)}{CombinarDeAcuerdoA($r_1,c_1$,campos($c_2$))}
+\bigskip
+
+\tadAxioma{CombinarDeAcuerdoA($r_1,r_2$,cs)}{\IF $\emptyset ?$(cs) THEN $r_1$ ELSE {\IF DameUno(c)$\in$campos($r_1$) THEN CombinarDeAcuerdoA($r_1,r_2$, SinUno(cs)) ELSE {\IF Nat?(tipo(DameUno(c))) THEN agValor\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)),DameUno(c), valorEn($r_2$,DameUno(cs))\big) ELSE agPalabra\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)), DameUno(c),palabraEn($r_2$,DameUno(cs))\big) FI} FI} FI}
+\bigskip
+
+\tadAxioma{noRepiten($r_1,r_2$, c)}{Nat?(Tipo(c)) $\yluego$ $\neg$ (valorEn($r_1$, c) $\igobs$ valorEn($r_2$, c))) $\vee$ ($\neg$ Nat?(tipo(c)) $\yluego$ $\vee$(palabraEn($r_1$, c) $\igobs$ palabraEn($r_2$, c)))}
+\bigskip
 
 \end{tad}
 

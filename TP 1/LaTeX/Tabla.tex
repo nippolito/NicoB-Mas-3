@@ -26,7 +26,7 @@
 \tadOperacion{Registros}{tabla}{conj(reg)}{}
 \tadOperacion{Nombre}{tabla}{string}{}
 \tadOperacion{Claves}{tabla}{conj(campo)}{}
-\tadOperacion{Campos}{tabla}{conj(campo)}{}
+\tadOperacion{CamposT}{tabla}{conj(campo)}{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -36,8 +36,8 @@
 \tadOperacion{NuevaTabla}{campo, string}{tabla}{}
 
 \tadOperacion{AgregarCampo}{tabla $\quad$ t, campo $\quad$ c}{tabla}{}
-\tadOperacion{DefClave}{tabla $\quad$ t, campo $\quad$ c}{tabla}{c $\in$ campos(t) $\wedge$ ($\forall$ $r_1$, $r_2$ : registro)( $\neg$($r_1$ $\igobs$ $r_2$) $\wedge$ $r_2$ $\in$ registros(t)) $\impluego$ noRepiten($r_1$, $r_2$, c)}
-\tadOperacion{A\~nadirReg}{a}{b}{tabla $\quad$ t, reg $\quad$ r}{tabla}{(campos(r) $\igobs$ campos(t)) $\wedge$ ($\forall$ c : campo)(c $\in$ claves(t) $\impluego$ ($\forall$ $r_1$ : registro) ($\neg$($r_1$ $\igobs$ r) $\wedge$ $r_1$ $\in$ registros(t)) $\impluego$ noRepiten(r, $r_1$, c)))}
+\tadOperacion{DefClave}{tabla $\quad$ t, campo $\quad$ c}{tabla}{c $\in$ camposT(t) $\wedge$ ($\forall$ $r_1$, $r_2$ : registro)( $\neg$($r_1$ $\igobs$ $r_2$) $\wedge$ $r_2$ $\in$ registros(t)) $\impluego$ noRepiten($r_1$, $r_2$, c)}
+\tadOperacion{A\~nadirReg}{tabla $\quad$ t, reg $\quad$ r }{tabla}{(campos(r) $\igobs$ camposT(t)) $\wedge$ ($\forall$ c : campo)(c $\in$ claves(t) $\impluego$ (($\forall$ $r_1$ : reg)(($\neg$ $r_1$ $\igobs$ r) $\wedge$ $r_1$ $\in$ registros(t)) $\impluego$ noRepiten(r, $r_1$, c))}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadOtrasOperaciones
 %\tadAlinearFunciones{bool, Tipo}
