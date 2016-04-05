@@ -71,6 +71,8 @@
 \bigskip
 \tadAxioma{VaciarTabla($t,cs$)}{\IF $\emptyset ?(cs)$ THEN nuevaTabla(DameUno(Claves(t)),nombre(t)) ELSE {\IF DameUno($cs$)$\in$Claves($t$) THEN DefClave\Big(A\~nadirReg\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big), DameUno($cs$)\Big) ELSE A\~nadirReg\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big) FI} FI}
 \bigskip
+\tadAxioma{UnirTablas($t_1,t_2,c,rs$)}{\IF $\emptyset ?(rs)$ THEN SetearTabla(campos($t_1$)$\cup$campos($t_2$), c, nombre($t_1$)\&nombre($t_2$)) ELSE {\IF Coincide?(registros($t_1$),DameUno($rs$),c) THEN A\~nadirReg\Big(UnirTablas\big($t_1,t_2,c$,SinUno($cs$)\big),\\Combinar\big(DameCoincidente(registros($t_1$),DameUno($rs$),c), DameUno($rs$)\big)\Big) ELSE UnirTablas\big($t_1,t_2,c$,SinUno($cs$)\big) FI} FI}
+
 
 \end{tad}
 
