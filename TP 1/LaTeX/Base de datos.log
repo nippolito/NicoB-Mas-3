@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.22)  5 APR 2016 16:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.22)  5 APR 2016 16:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -505,55 +505,102 @@ Overfull \hbox (17.50003pt too wide) in paragraph at lines 19--19
  []
 
 
-AED: lastpage setting LastPage
+Overfull \hbox (66.95766pt too wide) in paragraph at lines 73--73
+[]\T1/cmr/m/n/10 Tablas($\OML/cmm/m/it/10 b$\T1/cmr/m/n/10 ) - Ag($\OML/cmm/m/i
+t/10 t$\T1/cmr/m/n/10 ,QueTriggerea?($\OML/cmm/m/it/10 t$\T1/cmr/m/n/10 ,$\OML/
+cmm/m/it/10 b$\T1/cmr/m/n/10 )))$\OMS/cmsy/m/n/10 [$ \T1/cmr/m/n/10 Ag(añadirRe
+g($\OML/cmm/m/it/10 t$\T1/cmr/m/n/10 ,$\OML/cmm/m/it/10 r$\T1/cmr/m/n/10 ),Trig
+gereados($\OML/cmm/m/it/10 r$\T1/cmr/m/n/10 ,$\OML/cmm/m/it/10 t$\T1/cmr/m/n/10
+ ,QueTriggerea?($\OML/cmm/m/it/10 t$\T1/cmr/m/n/10 ,$\OML/cmm/m/it/10 b$\T1/cmr
+/m/n/10 ))) 
+ []
+
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 83.
 [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
 
-(./Base de datos.aux
+AED: lastpage setting LastPage
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 91.
+[2]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 91.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 91.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 91.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 91.
+ (./Base de datos.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 79.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 79.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 91.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 91.
 Package rerunfilecheck Info: File `"Base de datos".out' has not changed.
 (rerunfilecheck)             Checksum: 3EC81A156A3EBA2E6BF0E9F200020E75;52.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 79.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 91.
  ) 
 Here is how much of TeX's memory you used:
- 7885 strings out of 493109
- 111544 string characters out of 6135009
- 227322 words of memory out of 5000000
+ 7886 strings out of 493109
+ 111550 string characters out of 6135009
+ 231322 words of memory out of 5000000
  11230 multiletter control sequences out of 15000+600000
  11636 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,16n,43p,644b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,16n,43p,644b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
@@ -566,10 +613,10 @@ exlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive
 /2014/texmf-dist/fonts/type1/public/cm-super/sfxc1440.pfb>
-Output written on "Base de datos.pdf" (1 page, 109576 bytes).
+Output written on "Base de datos.pdf" (2 pages, 112392 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
- 3 named destinations out of 1000 (max. 500000)
+ 67 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
+ 4 named destinations out of 1000 (max. 500000)
  9 words of extra memory for PDF output out of 10000 (max. 10000000)
 
