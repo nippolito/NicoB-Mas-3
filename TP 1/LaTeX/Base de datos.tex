@@ -196,7 +196,7 @@
 \tadAxioma{TabMasModificada($b$)}{MasMod(tablas(b), b)}
 \bigskip
 
-\tadAxioma{MasMod($ts$, $b$)}{\IF $\emptyset$?(ts) THEN NuevaTabla ELSE {\IF \#Modificaciones(DameUno(ts), b) $\geqslant$ \#Modificaciones(MasMod(sinUno(ts), b)) THEN \#Modificaciones(DameUno(ts, b)) ELSE MasMod(SinUno(ts, b))FI} FI}
+\tadAxioma{MasMod($ts$, $b$)}{\IF $\emptyset$?(sinUno(ts)) THEN $\emptyset$ ELSE {\IF \#Modificaciones(DameUno(ts), b) $\geqslant$ \#Modificaciones(MasMod(sinUno(ts), b)) THEN DameUno(ts) ELSE MasMod(SinUno(ts, b))FI} FI}
 \bigskip
 
 \end{tad}
