@@ -40,21 +40,37 @@
 \tadOtrasOperaciones
 %\tadAlinearFunciones{bool, Tipo}
 
-\tadOperacion{noRepiten}{reg $\quad$ $r_1$, reg $\quad$ $r_2$, campo $\quad$ c }{bool}{	c $\in$ campos($r_1$) $\wedge$ c $\in$ campos($r_2$}
-
 \tadOperacion{Combinar}{reg $\quad$ $r_1$, reg $\quad$ $r_2$}{reg}{}
 
 \tadOperacion{CombinarDeAcuerdoA}{reg $\quad$ $r_1$, reg $\quad$ $r_2$, conj(campo) $\quad$ cs}{reg}{}
 
+\tadOperacion{Coincide?}{conj(reg) $\quad$ rs, reg $\quad$ r, campo $\quad$ c}{bool}{($\forall$ $r_1$ : reg) $r_1$ $\in rs$ $\Rightarrow$(c $\in$ campos($r_1$))}
+
+\tadOperacion{DameCoincidente}{conj(reg) $\quad$ $rs$, reg $\quad$ $r$, campo $\quad$ c}{bool}{(Coincide?($rs, r, c$) $\wedge $($\forall$ $r_1$ : reg) ($r_1\in rs$ $\Rightarrow$c $\in$ campos($r_1$))}
+
+\tadOperacion{DameCoincidentesVal}{campo $\quad$ $r$, nat $\quad$ $n$, conj(reg) $\quad$ $rs$}{conj(reg)}{Nat?(tipo($c$))}
+
+\tadOperacion{DameCoincidentesPal}{campo $\quad$ $r$, string $\quad$ $s$, conj(reg) $\quad$ $rs$}{conj(reg)}{$\neg$Nat?(tipo($c$))}
+
+\tadOperacion{noRepiten}{reg $\quad$ $r_1$, reg $\quad$ $r_2$, campo $\quad$ c }{bool}{	c $\in$ campos($r_1$) $\wedge$ c $\in$ campos($r_2$)}
+
+\tadOperacion{AgYCompDefault}{reg $\quad$ r, conj(campo) $\quad$ $cs$}{reg}{}
+
+\tadOperacion{AgregoPorDefault}{reg $\quad$ r, campo $\quad$ c}{reg}{	$\neg$ (c $\in$ campos(r)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%<<<<<<< HEAD
 \tadAxiomas[\paratodo{reg}{r_1,r_2}, \paratodo{campo}{c_1, c_2}, \paratodo{conj(campo)}{cs}, \paratodo{nat}{n}, \paratodo{string}{s}]
+%=======
+\tadAxiomas[\paratodo{reg}{r_1,r_2}, \paratodo{campo}{c}, \paratodo{conj(campo)}{cs}, \paratodo{nat}{n}, \paratodo{string}{s}, \paratodo{conj(reg)}{rs}]
+%>>>>>>> e7068dd383137020fcabb31db399102d362ab264
 %\tadAlinearAxiomas{bool,nat}
 
 % OB título
 \tadAxioma{campos(nuevoReg)}{$\emptyset$}
 
 \tadAxioma{campos(agValor($r_1$,$c_1$,n)}{Ag($c_1$,campos($r_1$))}
+%<<<<<<< HEAD
 
 \tadAxioma{campos(agPalabra($r_1$,$c_1$,s))}{Ag($c_1$,campos($r_1$))}
 \bigskip
@@ -69,6 +85,41 @@
 \tadAxioma{Combinar($r_1,r_2$)}{CombinarDeAcuerdoA($r_1,c_1$,campos($c_2$))}
 \bigskip
 \tadAxioma{CombinarDeAcuerdoA($r_1,r_2$,cs)}{\IF $\emptyset ?$(cs) THEN $r_1$ ELSE {\IF DameUno(c)$\in$campos($r_1$) THEN CombinarDeAcuerdoA($r_1,r_2$, SinUno(cs)) ELSE {\IF Nat?(tipo(DameUno(c))) THEN agValor\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)),DameUno(c), valorEn($r_2$,DameUno(cs))\big) ELSE agPalabra\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)), DameUno(c),palabraEn($r_2$,DameUno(cs))\big) FI} FI} FI}
+%=======
+
+\tadAxioma{campos(agPalabra($r_1$,$c_1$,s))}{Ag($c_1$,campos($r_1$))}
+\bigskip
+\tadAxioma{valorEn(agValor($r_1$,$c_1$,n), $c_2$)}{\IF $c_1 \igobs c_2$ THEN n ELSE valorEn($r_1$, $c_2$) FI}
+
+\tadAxioma{valorEn(agPalabra($r_1$,$c_1$,s),$c_2$)}{valorEn($r_1$,$c_2$)}
+\bigskip
+\tadAxioma{palabraEn(agValor($r_1$, $c_1$,n), $c_2$)}{palabraEn($r_1$, $c_2$)}
+
+\tadAxioma{palabraEn(agPalabra($r_1$,$c_1$,s), $c_2$)}{\IF $c_1 \igobs c_2$ THEN s ELSE palabraEn($r_1$, $c_2$) FI}
+\bigskip
+
+\tadAxioma{Coincide?(rs, r, c)}{\IF $\emptyset$?(rs) THEN false ELSE $\neg$ NoRepiten(DameUno(rs), r, c) $\vee$ Coincide?(SinUno(rs), r, c) FI}
+\bigskip
+
+\tadAxioma{DameCoincidente($rs, r, c$)}{\IF NoRepiten(DameUno(rs), r, c) THEN DameCoincidente(SinUno(rs), r, c) ELSE DameUno(rs) FI}
+\bigskip
+
+\tadAxioma{Combinar($r_1,r_2$)}{CombinarDeAcuerdoA($r_1,c_1$,campos($c_2$))}
+\bigskip
+
+\tadAxioma{CombinarDeAcuerdoA($r_1,r_2,cs$)}{\IF $\emptyset ?$(cs) THEN $r_1$ ELSE {\IF DameUno(c)$\in$campos($r_1$) THEN CombinarDeAcuerdoA($r_1,r_2$, SinUno(cs)) ELSE {\IF Nat?(tipo(DameUno(c))) THEN agValor\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)),DameUno(c), valorEn($r_2$,DameUno(cs))\big) ELSE agPalabra\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)), DameUno(c),palabraEn($r_2$,DameUno(cs))\big) FI} FI} FI}
+\bigskip
+
+\tadAxioma{noRepiten($r_1,r_2$, $c$)}{Nat?(Tipo(c)) $\yluego$ $\neg$ (valorEn($r_1$, c) $\igobs$ valorEn($r_2$, c))) $\vee$ ($\neg$ Nat?(tipo(c)) $\yluego$ $\vee$(palabraEn($r_1$, c) $\igobs$ palabraEn($r_2$, c)))}
+\bigskip
+\tadAxioma{DameCoincidentesVal($c,n,rs$)}{\IF $\emptyset ?(rs)$ THEN $\emptyset$ ELSE {\IF ValorEn(DameUno($rs$),$c$)$\igobs n$ THEN Ag\big(DameUno($rs$),DameCoincidentesVal($c$,$n$,SinUno($rs$))\big) ELSE DameCoincidentesVal($c$,$n$,SinUno($rs$)) FI} FI}
+\bigskip
+\tadAxioma{DameCoincidentesPal($c,s,rs$)}{\IF $\emptyset ?(rs)$ THEN $\emptyset$ ELSE {\IF PalabraEn(DameUno($rs$),$c$)$\igobs s$ THEN Ag\big(DameUno($rs$),DameCoincidentesPal($c$,$s$,SinUno($rs$))\big) ELSE DameCoincidentesPal($c$,$s$,SinUno($rs$)) FI} FI}
+\bigskip
+\tadAxioma{AgYCompDefault(r,cs)}{\IF $\emptyset$?(cs) THEN NuevoRegistro ELSE {\IF DameUno(cs) $\in$ campos(r) THEN {\IF Nat?(tipo(DameUno(cs))) THEN AgValor\Big(AgYCompDefault\big(r,SinUno(cs)\big),DameUno(cs),\\ValorEn(r,DameUno(cs))\Big) ELSE AgPalabra\Big(AgYCompDefault\big(r,SinUno(cs)\big),DameUno(cs),\\PalabraEn(r,DameUno(cs))\Big) FI} ELSE AgregoPorDefault\big(AgYCompDefault(r,SinUno(cs)),DameUno(cs)\big)FI} FI}
+\bigskip
+\tadAxioma{AgregoPorDefault(r,c)}{\IF Nat?(tipo(c) THEN AgValor(r, c, 0) ELSE AgPalabra(r, c, "Default") FI}
+%>>>>>>> e7068dd383137020fcabb31db399102d362ab264
 
 \end{tad}
 

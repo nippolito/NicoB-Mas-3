@@ -1,0 +1,94 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[paper=a4paper, left=1.5cm, right=1.5cm, bottom=1.5cm, top=3.5cm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{latexsym}
+\usepackage{lastpage}
+\usepackage{aed2-symb,aed2-itef,aed2-tad}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage{calc}
+
+\begin{document}
+
+\section{TAD \tadNombre{Base de Datos}}
+
+\begin{tad}{\tadNombre{Base de Datos}}
+\tadIgualdadObservacionalSimple{($\forall$ $b_1$,$b_2$:bdd) ($b_1$ $\igobs$ $b_2$) $\Leftrightarrow$ \Bigg( tablas($b_1$) $\igobs$ tablas($b_2$) $\wedge$ ($\forall$ $t_1$,$t_2$:tabla)($\{$ $t_1$, $t_2$ $\}$ $\in$ tablas($b_1$) $\wedge$ $\{$ $t_1$, $t_2$ $\}$ $\in$ tablas(b2)) camposDeJoin($t_1$,$t_2$,$b_1$) $\igobs$ camposDeJoin($t_1$,$t_2$,$b_2$) $\wedge$  $\qquad$ QueTriggerea?($t_1$,$b_1$) $\igobs$ QueTriggerea?($t_1$,$b_1$)    }
+
+\tadGeneros{bdd}
+\tadExporta{**reg, generadores, observadores, otras operaciones}
+\tadUsa{\tadNombre{**Nat}, \tadNombre{String}, \tadNombre{Campo}, \tadNombre{Tipo}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadObservadores
+\tadOperacion{Tablas}{bdd}{conj(tabla)}{}
+\tadOperacion{CamposDeJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{conj(campo)}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b)}
+\tadOperacion{QueTriggerea?}{tabla $\quad$ t, bdd $\quad$ b}{conj(tabla)}{t $\in$ tablas(b)}
+\tadOperacion{\#Modificaciones}{tabla  $\quad$ t, bdd  $\quad$ $b$}{nat}{t $\in$ tablas($b$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadGeneradores
+%\tadAlinearFunciones{Nat?~}{string}
+
+\tadOperacion{Nuevobdd}{}{bdd}{}
+
+\tadOperacion{AgTabla}{tabla $\quad$ t,bdd $\quad$ b}{bdd}{}
+\tadOperacion{AgJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\wedge$ c $\in$ (claves($t_1$) $\cup$ claves($t_2$))}
+\tadOperacion{DefTrigger}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\wedge$ (claves($t_2$) $\subseteq$ claves($t_1$)) $\wedge$ $t_1$ $\neq$ $t_2$}
+\tadOperacion{ElimJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{bdd}{\{$t_1$, $t_2$\} $\in$ tablas(b) $\yluego$ c $\in$ CamposDeJoin($t_1$, $t_2$, b)}
+\tadOperacion{ElimTrigger}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\yluego$ $t_2$ $\in$ QueTriggerea?($t_1$, b)}
+\tadOperacion{**AgregarReg}{reg $\quad$ r, tabla $\quad$ t, bdd $\quad$ b}{bdd}{t $\in$ tablas(b) $\yluego$ (($\forall$ $t_1$:Tabla)($t_1$ $\in$ QueTriggerea?(t,b))) $\impluego$ (($\forall$ c:Campo)(c $\in$ claves($t_1$))) $\impluego$ (($\forall$ $r_1$:reg)($r_1$ $\in$ registros($t_1$))) NoRepiten($r_1$, r, c)}
+\tadOperacion{ElimRegStr}{campo $\quad$ $c$ ,string $\quad$ $s$,tabla $\quad$ $t_1$, bdd $\quad$ $b$}{bdd}{$\neg$(Nat?(tipo($c$) $\wedge$ $t_1$ $\in$ tablas($b$)}
+\tadOperacion{ElimRegNat}{campo $\quad$ $c$ ,nat $\quad$ $n$,tabla $\quad$ $t_1$ , bdd $\quad$ $b$}{bdd}{(Nat?(tipo($c$) $\wedge$ $t_1$ $\in$ tablas($b$)}
+\tadOtrasOperaciones
+%\tadAlinearFunciones{bool, Tipo}
+
+\tadOperacion{hayJoin?}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{bool}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b)}
+
+\tadOperacion{verJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{tabla}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\yluego$ c $\in$ CamposdeJoin($t_1$, $t_2$, b)}
+
+\tadOperacion{AgregarReg}{ reg $r$, tabla $\quad$ $t_1$ ,bdd $\quad$ $b$}{bdd}{$t_1$ $\in$ tablas($b$)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadAxiomas[\paratodo{tabla}{t_1,t_2,t_3,t_4}, \paratodo{registro}{r}, \paratodo{campo}{c}, \paratodo{conj(campo)}{cs}, \paratodo{nat}{n}, \paratodo{string}{s}]
+%\tadAlinearAxiomas{bool,nat}
+
+% OB título
+\tadAxioma{Tablas(Nuevobdd)}{ $\emptyset$ }
+\tadAxioma{Tablas(AgTabla($t_1$,$b$))}{\IF $t_1$ $\in$ tablas(b) THEN tablas(b) ELSE Ag($t_1$,tablas($b$)) FI}
+\tadAxioma{Tablas(AgJoin($t_1$,$t_2$,$c$,$b$))}{Tablas($b$)}
+\tadAxioma{Tablas(DefTrigger($t_1$,$t_2$,$b$))}{Tablas($b$)}
+\tadAxioma{Tablas(ElimJoin($t_1$, $t_2$, c, b))}{Tablas(b)}
+\tadAxioma{Tablas(ElimTrigger($t_1$, $t_2$, b))}{Tablas(b)}
+\tadAxioma{Tablas(AgregarReg(r, t, b))}{Tablas(b)-Ag(t, QueTriggerea?(t, b))) $\cup$ Ag(A\~nadirReg(t,r), Triggereados(r, t, QueTriggerea?(t, b)))}
+\tadAxioma{Tablas(ElimRegStr(c, s, t, b))}{Ag(borrarPalabra(t, c, s), Tablas(b)-t)}
+\tadAxioma{Tablas(ElimRegNat(c, n, t, b))}{Ag(borrarValor(t, c, n), Tablas(b)-t)}
+\tadAxioma{Tablas(ElimJoin($t_1$,$t_2$,$c$,$b$))}{Tablas($b$)}
+\tadAxioma{Tablas(AgregarReg($r$,$t$,$b$))}{Tablas($b$) - Ag($t$,QueTriggerea?($t$,$b$)))$\cup$ Ag(a\~nadirReg($t$,$r$),Triggereados($r$,$t$,QueTriggerea?($t$,$b$)))}
+\tadAxioma{CamposDeJoin($t_1$,$t_2$,AgTabla($t_3$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
+\tadAxioma{CamposDeJoin($t_1$,$t_2$,AgJoin($t_3$,$t_4$,$c$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
+\tadAxioma{CamposDeJoin($t_1$,$t_2$,DefTrigger($t_3$,$t_4$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
+\tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimJoin($t_3$, $t_4$, c, b))}{\IF (($t_1$ $\igobs$ $t_3$ $\vee$ $t_1$ $\igobs$ $t_4$) $\wedge$ ($t_2$ $\igobs$ $t_3$ $\vee$ $t_2$ $\igobs$ $t_4$)) THEN c - CamposDeJoin($t_1$, $t_2$, b) ELSE CamposDeJoin($t_1$, $t_2$, b) FI}
+\tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimTrigger($t_3$, $t_4$, b))}{CamposDeJoin($t_1$, $t_2$, b)}
+\tadAxioma{CamposDeJoin($t_1$, $t_2$, AgregraReg(r, $t_3$,b))}{CamposDeJoin($t_1$, $t_2$, b)}
+\tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimRegStr(c, s, $t_3$, b))}{CamposDeJoin($t_1$, $t_2$, b)}
+\tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimRegNat(c, n, $t_3$, b))}{CamposDeJoin($t_1$, $t_2$, b)}
+\tadAxioma{QueTriggerea?($t_1$,AgTabla($t_2$,$b$))}{QueTriggerea?($t_1$,$b$}
+\tadAxioma{QueTriggerea?($t_1$,AgJoin($t_2$,$t_3$,$c$,$b$))}{QueTriggerea?($t_1$,$b$}
+\tadAxioma{QueTriggerea?($t_1$,DefTrigger($t_2$,$t_3$,$b$))}{\IF $\neg$($t_1$ $\igobs$ $t_2$ $\wedge$ $t_1$ $\igobs$ $t_3$) THEN QueTriggerea?($t_1$,$b$) ELSE {\IF ($t_1$ $\igobs$ $t_2$) THEN Ag($t_3$,QueTriggerea?($t_1$,$b$) ELSE QueTriggerea?($t_1$,$b$) FI} FI}
+\tadAxioma{HayJoin?($t_1$, $t_2$, b)}{\IF $\emptyset$?(camposDeJoin($t_1$, $t_2$, b) THEN false ELSE true FI}
+
+
+
+\tadAxioma{VerJoin($t_1,t_2,c,b$)}{UnirTablas($t_1,t_2,c$,registros($t_2$))}
+
+\end{tad}
+
+
+
+
+
+\end{document}
