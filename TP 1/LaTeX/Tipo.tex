@@ -13,15 +13,15 @@
 
 \begin{document}
 
-\section{TAD \tadNombre{GeneroTipo}}
+\section{TAD \tadNombre{Tipo}}
 
-\begin{tad}{\tadNombre{GeneroTipo}}
+\begin{tad}{\tadNombre{Tipo}}
 
 \tadIgualdadObservacionalSimple{(Nat $\igobs$ Nat) $\wedge$ (String $\igobs$ String) $\wedge$ $\neg$(Nat $\igobs$ String) $\wedge$ $\neg$ (String $\igobs$ Nat) }
 
 \tadGeneros{Tipo}
 \tadExporta{Tipo, generadores, observadores, otras operaciones}
-\tadUsa{\tadNombre{Nat}, \tadNombre{String}}
+\tadUsa{\tadNombre{Bool}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -38,10 +38,10 @@
 
 \tadOperacion{Nat?}{Tipo}{bool}{}
 
-\tadOperacion{ElOtro}{Tipo}{Tipo}{}
+\tadOperacion{$\bullet$ = $\bullet$}{Tipo, Tipo}{bool}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tadAxiomas[\paratodo{Tipo}{t}]
+\tadAxiomas[\paratodo{Tipo}{t1,t_2}]
 %\tadAlinearAxiomas{bool,nat}
 
 % OB título
@@ -49,8 +49,7 @@
 
 \tadAxioma{Nat?(String)}{False}
 
-% OB tipo
-\tadAxioma{ElOtro(t)}{\IF Nat?(t) THEN String ELSE Nat FI}
+\tadAxioma{$t_1 = t_2$}{\IF Nat?($t_1$) THEN Nat?($t_1$) ELSE $\neg$Nat?($t_2$) FI}
 
 \end{tad}
 

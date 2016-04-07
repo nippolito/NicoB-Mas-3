@@ -35,16 +35,20 @@
 \tadOperacion{nuevoCampo}{string, tipo}{campo}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tadOtrasOperaciones
 
+\tadOperacion{$\bullet$ = $\bullet$}{campo, campo}{bool}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tadAxiomas[\paratodo{Tipo}{t},\paratodo{String}{s}]
+\tadAxiomas[\paratodo{campo}{c_1,c_2}, \paratodo{Tipo}{t},\paratodo{String}{s}]
 %\tadAlinearAxiomas{bool,nat}
 
 % OB título
 \tadAxioma{tipo(nuevoCampo(s,t))}{t}
 
 \tadAxioma{nombre(nuevoCampo(s,t))}{s}
+
+\tadAxioma{$c_1$=$c_2$}{tipo($c_1$)=tipo($c_2$) $\wedge$ nombre($c_1$)=nombre($c_2$)}
 
 \end{tad}
 
