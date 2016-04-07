@@ -16,7 +16,7 @@
 \section{TAD \tadNombre{Base de Datos}}
 
 \begin{tad}{\tadNombre{Base de Datos}}
-\tadIgualdadObservacionalSimple{($\forall$ $b_1$,$b_2$:bdd) ($b_1$ $\igobs$ $b_2$) $\Leftrightarrow$ \Bigg( tablas($b_1$) $\igobs$ tablas($b_2$) $\wedge$ ($\forall$ $t_1$,$t_2$:tabla)($\{$ $t_1$, $t_2$ $\}$ $\in$ tablas($b_1$) $\wedge$ $\{$ $t_1$, $t_2$ $\}$ $\in$ tablas(b2)) camposDeJoin($t_1$,$t_2$,$b_1$) $\igobs$ camposDeJoin($t_1$,$t_2$,$b_2$) $\wedge$  $\qquad$ QueTriggerea?($t_1$,$b_1$) $\igobs$ QueTriggerea?($t_1$,$b_1$)    }
+\tadIgualdadObservacionalSimple{($\forall$ $b_1$,$b_2$:bdd) ($b_1$ $\igobs$ $b_2$) $\Leftrightarrow$ \Bigg( tablas($b_1$) $\igobs$ tablas($b_2$) $\wedge$ (($\forall$ $t_1$,$t_2$:tabla)($\{$ $t_1$, $t_2$ $\}$ $\in$ tablas($b_1$) $\wedge$ $\{$ $t_1$, $t_2$ $\}$ $\in$ tablas(b2)) camposDeJoin($t_1$,$t_2$,$b_1$) $\igobs$ camposDeJoin($t_1$,$t_2$,$b_2$) $\wedge$  $\qquad$ QueTriggerea?($t_1$,$b_1$) $\igobs$ QueTriggerea?($t_1$,$b_1$)) $\wedge$ ($\forall$ $t_3$: tabla) $t_3$ $\in$ tablas($b_1$) $\impluego$ (\#Modificaciones($t_3$, $b_1$) $\igobs$ \#Modificaciones($t_3$, $b_2$)) \Bigg)}
 
 \tadGeneros{bdd}
 \tadExporta{**reg, generadores, observadores, otras operaciones}
@@ -196,7 +196,7 @@
 \tadAxioma{TabMasModificada($b$)}{MasMod(tablas(b), b)}
 \bigskip
 
-\tadAxioma{MasMod($ts$, $b$)}{\IF $\emptyset$?(sinUno(ts)) THEN $\emptyset$ ELSE {\IF \#Modificaciones(DameUno(ts), b) $\geqslant$ \#Modificaciones(MasMod(sinUno(ts), b)) THEN DameUno(ts) ELSE MasMod(SinUno(ts, b))FI} FI}
+\tadAxioma{MasMod($ts$, $b$)}{\IF $\emptyset$?(sinUno(ts)) THEN sinUno(ts) ELSE {\IF \#Modificaciones(DameUno(ts), b) $\geqslant$ \#Modificaciones(MasMod(sinUno(ts), b)) THEN DameUno(ts) ELSE MasMod(SinUno(ts, b))FI} FI}
 \bigskip
 
 \end{tad}

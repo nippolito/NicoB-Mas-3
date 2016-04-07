@@ -16,17 +16,25 @@
 \section{TAD \tadNombre{Tabla}}
 
 \begin{tad}{\tadNombre{tabla}}
-\tadIgualdadObservacionalSimple{($\forall$ $r_1$,$r_2$:reg) ($r_1$ $\igobs$ $r_2$) $\Leftrightarrow$ \Bigg( campos($r_1$) $\igobs$ campos($r_2$) $\yluego$ \bigg(($\forall$ c:Campos) \\ \Big((c $\in$ campos($r_1$))) $\impluego$ \big((Nat?(tipo(c)) $\impluego$ (ValorEn($r_1$, c) $\igobs$ ValorEn($r_2$, c))) $\wedge$ ($\neg$Nat?(tipo(c)) $\impluego$ (PalabraEn($r_1$, c) $\igobs$ PalabraEn($r_2$, c))\big)\Big)\bigg)\Bigg)}
+\tadIgualdadObservacionalSimple{($\forall$ $t_1$,$t_2$: tabla) ($t_1$ $\igobs$ $t_2$) $\Leftrightarrow$ \Bigg( Registros($t_1$) $\igobs$ Registros($t_2$) $\wedge$ Nombre($t_1$) $\igobs$ Nombre($t_2$) $\wedge$ Claves($t_1$) $\igobs$ Claves($t_2$) $\wedge$ CamposT($t_1$) $\igobs$ CamposT($t_2$) \Bigg)}
 
 \tadGeneros{reg}
-\tadExporta{reg, generadores, observadores, otras operaciones}
-\tadUsa{\tadNombre{Nat}, \tadNombre{String}, \tadNombre{Campo}, \tadNombre{Tipo}}
+\tadExporta{tabla, generadores, observadores, otras operaciones}
+\tadUsa{\tadNombre{Nat}, \tadNombre{Registro}, \tadNombre{String}, \tadNombre{Campo}, \tadNombre{Tipo}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadObservadores
 \tadOperacion{Registros}{tabla}{conj(reg)}{}
+\bigskip
+
 \tadOperacion{Nombre}{tabla}{string}{}
+\bigskip
+
 \tadOperacion{Claves}{tabla}{conj(campo)}{}
+\bigskip
+
 \tadOperacion{CamposT}{tabla}{conj(campo)}{}
+\bigskip
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -34,71 +42,144 @@
 %\tadAlinearFunciones{Nat?~}{string}
 
 \tadOperacion{NuevaTabla}{campo, string}{tabla}{}
+\bigskip
 
 \tadOperacion{AgregarCampo}{tabla $\quad$ t, campo $\quad$ c}{tabla}{}
-\tadOperacion{DefClave}{tabla $\quad$ t, campo $\quad$ c}{tabla}{c $\in$ camposT(t) $\wedge$ ($\forall$ $r_1$, $r_2$ : registro)\big($\neg$($r_1$ $\igobs$ $r_2$) $\wedge$ $r_2$ $\in$ registros(t)\big) $\impluego$ noRepiten($r_1$, $r_2$, c)\Big)}
+\bigskip
 
+\tadOperacion{DefClave}{tabla $\quad$ t, campo $\quad$ c}{tabla}{c $\in$ camposT(t) $\wedge$ ($\forall$ $r_1$, $r_2$ : registro)\big($\neg$($r_1$ $\igobs$ $r_2$) $\wedge$ $r_2$ $\in$ registros(t)\big) $\impluego$ noRepiten($r_1$, $r_2$, c)\Big)}
+\bigskip
 
 \tadOperacion{A\~nadirReg}{tabla $\quad$ t, reg $\quad$ r }{tabla}{(campos(r) $\igobs$ camposT(t)) $\wedge$ ($\forall$ c : campo)\Big(c $\in$ claves(t) $\impluego$ (($\forall$ $r_1$ : reg)\big(($\neg$ ($r_1$ $\igobs$ r) $\wedge$ \\ $r_1$ $\in$ registros(t)) $\impluego$ noRepiten(r, $r_1$, c) \big) \Big)}
-
+\bigskip
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadOtrasOperaciones
 %\tadAlinearFunciones{bool, Tipo}
 \tadOperacion{\#AparicionesVal}{tabla $\quad$ $t$, campo $\quad$ $c$, nat $\quad$ n }{nat}{Nat?(tipo($c$))}
+\bigskip
+
 \tadOperacion{\#AparicionesPal}{tabla $\quad$ $t$, campo $\quad$ $c$, string $\quad$ s }{nat}{$\neg$Nat?(tipo($c$))}
+\bigskip
+
 \tadOperacion{borrarValor}{tabla $\quad$ $t$, campo $\quad$ $c$, nat $\quad$ n }{tabla}{Nat?(tipo($c$))}
+\bigskip
+
 \tadOperacion{borrarPalabra}{tabla $\quad$ $t$, campo $\quad$ $c$, string $\quad$ s }{tabla}{$\neg$Nat?(tipo($c$))}
+\bigskip
+
 \tadOperacion{SetearTabla}{conj(campo) $\quad$ $cs$, campo $\quad$ $c$, string $\quad$ s }{tabla}{}
+\bigskip
+
 \tadOperacion{Triggereados}{registro $\quad$ $r$, tabla $\quad$ $t_1$, conj(tabla) $\quad$ $ts$}{tabla}{}
+\bigskip
+
 \tadOperacion{UnirTablas}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ $c$, conj(reg) $\quad$ $rs$}{tabla}{$c\in$ \big(claves($t_1$)$\cap$claves($t_2$)\big)}
+\bigskip
+
 \tadOperacion{VaciarTabla}{tabla $\quad$ $t$, conj(campo) $\quad$ $c$}{tabla}{}
+\bigskip
+
 \tadOperacion{armameUnaSinVal}{tabla $\quad$ t, campo $\quad$ c, nat $\quad$ n, conj(registro) $\quad$ rs}{tabla}{Nat?(tipo(c))}
+\bigskip
+
 \tadOperacion{armameUnaSinVal}{tabla $\quad$ t, campo $\quad$ c, string $\quad$ s, conj(registro) $\quad$ rs}{tabla}{$\neg$Nat?(tipo(c))}
+\bigskip
+
 \tadOperacion{Triggeareados}{reg $\quad$ r, tabla $\quad$ t, conj(tabla) $\quad$ ts}{conj(tabla)}{}
+\bigskip
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadAxiomas[\paratodo{reg}{r_1,r_2}, \paratodo{campo}{c}, \paratodo{conj(campo)}{cs}, \paratodo{nat}{n}, \paratodo{string}{s}]
 %\tadAlinearAxiomas{bool,nat}
 
 % OB título
 \tadAxioma{registros(nuevatalbla(c,s))}{$\varnothing$}
+\bigskip
+
 \tadAxioma{registros(agregarCampo(t,c))}{$\varnothing$}
+\bigskip
+
 \tadAxioma{registros(defClave(t,c))}{registros(t)}
+\bigskip
+
 \tadAxioma{registros(a\~nadirReg(t,r))}{Ag(r,registros(t)}
+\bigskip
+
 \tadAxioma{nombre(nuevaTabla(c,s))}{s}
+\bigskip
+
 \tadAxioma{nombre(agregarCampo(t,c))}{nombre(t)}
+\bigskip
+
 \tadAxioma{nombre(defClave(t,c))}{nombre(t)}
+\bigskip
+
 \tadAxioma{nombre(a\~nadirReg(t,r))}{nombre(t)}
+\bigskip
+
 \tadAxioma{claves(nuevaTabla(c,s))}{Ag(c, $\varnothing$)}
+\bigskip
+
 \tadAxioma{claves(agregarCampo(t,c))}{claves(t)}
+\bigskip
+
 \tadAxioma{claves(defClave(t,c))}{\IF c $\in$ claves(t) THEN claves(t) ELSE Ag(c, claves(t) FI}
+\bigskip
+
 \tadAxioma{claves(a\~nadirReg(t,r))}{claves(t)}
+\bigskip
+
 \tadAxioma{camposT(nuevaTabla(c,s))}{Ag(c, $\varnothing$}
+\bigskip
+
 \tadAxioma{camposT(agregarCampo(t,c))}{Ag(c,camposT(c)}
+\bigskip
+
 \tadAxioma{camposT(defClave(t,c)}{camposT(t)}
+\bigskip
+
 \tadAxioma{camposT(a\~nadirReg(t,r))}{camposT(t)}
+\bigskip
+
 \tadAxioma{campos(nuevoReg)}{$\emptyset$}
+\bigskip
+
 \tadAxioma{campos(AgValor($r_1$,c,n)}{Ag(c,campos($r_1$))}
+\bigskip
+
 \tadAxioma{\#aparicionesVal(t, c, n)}{\#(DameCoincidenteVal(c, n, registros(t))}
+\bigskip
+
 \tadAxioma{\#aparicionesPal(t, c, s)}{\#(DameCoincidentePal(c, s, registros(t))}
+\bigskip
+
 \tadAxioma{borrarValor(t, c, n)}{armameUnaSinVal(t, c, n, registros(t))}
+\bigskip
+
 \tadAxioma{borrarPalabra(t, c, s)}{armameUnaSinPal(t, c, s, registros(t))}
+\bigskip
+
 \tadAxioma{Triggereados(r, t, ts)}{\IF $\varnothing$?(ts) THEN $\varnothing$ ELSE Ag(A\~nadirReg(DameUno(ts), AgYCompDefault(r, camposT(DameUno(ts)))), Triggeareados(r, t, SinUno(ts))) FI}
 \bigskip
+
 \tadAxioma{armameUnaSinVal(t, c, n, rs)}{\IF $\varnothing$?(rs) THEN vaciarTabla(t, campos(t)) ELSE {\IF ValorEn(DameUno(rs),c) $\igobs$ n THEN armameUnaSinVal(t, c, n, SinUno(rs)) ELSE A\~nadirReg(armameUnaSinVal(t, c, n, SinUno(rs)), DameUno(rs)) FI} FI}
 \bigskip
+
 \tadAxioma{armameUnaSinPal(t, c, s, rs)}{\IF $\varnothing$?(rs) THEN vaciarTabla(t, campos(t)) ELSE {\IF PalabraEn(DameUno(rs), c) $\igobs$ s THEN armameUnaSinPal(t, c, s, SinUno(rs)) ELSE A\~nadirReg(armaneUnaSinPal(t, c, s, SinUno(rs)), DameUno(rs)) FI}FI}
 \bigskip
+
 % OB tipo
 %\tadAxioma{ElOtro(t)}{\IF Nat?(t) THEN String ELSE Nat FI}
 
 \tadAxioma{SetearTabla($cs,c,s$)}{\IF $\emptyset ?(cs)$ THEN nuevaTabla(c,s) ELSE agregarCampo\big(SetearTabla(SinUno($cs$),c,s),DameUno($cs$)\big) FI}
 \bigskip
+
 \tadAxioma{VaciarTabla($t,cs$)}{\IF $\emptyset ?(cs)$ THEN nuevaTabla(DameUno(Claves(t)),nombre(t)) ELSE {\IF DameUno($cs$)$\in$Claves($t$) THEN DefClave\Big(A\~nadirReg\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big), DameUno($cs$)\Big) ELSE A\~nadirReg\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big) FI} FI}
 \bigskip
+
 \tadAxioma{UnirTablas($t_1,t_2,c,rs$)}{\IF $\emptyset ?(rs)$ THEN SetearTabla(campos($t_1$)$\cup$campos($t_2$), c, nombre($t_1$)\&nombre($t_2$)) ELSE {\IF Coincide?(registros($t_1$),DameUno($rs$),c) THEN A\~nadirReg\Big(UnirTablas\big($t_1,t_2,c$,SinUno($cs$)\big),\\Combinar\big(DameCoincidente(registros($t_1$),DameUno($rs$),c), DameUno($rs$)\big)\Big) ELSE UnirTablas\big($t_1,t_2,c$,SinUno($cs$)\big) FI} FI}
 
-\tadAxioma{}{}
 \end{tad}
 
 
