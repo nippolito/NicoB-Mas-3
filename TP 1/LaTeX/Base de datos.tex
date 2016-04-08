@@ -16,23 +16,20 @@
 \section{TAD \tadNombre{Base de Datos}}
 
 \begin{tad}{\tadNombre{Base de Datos}}
-\tadIgualdadObservacionalSimple{($\forall$ $b_1$,$b_2$:bdd) ($b_1$ $\igobs$ $b_2$) $\Leftrightarrow$ \Bigg( tablas($b_1$) $\igobs$ tablas($b_2$) $\wedge$ (($\forall$ $t_1$,$t_2$:tabla)($\{$ $t_1$, $t_2$ $\}$ $\in$ tablas($b_1$) $\wedge$ $\{$ $t_1$, $t_2$ $\}$ $\in$ tablas(b2)) camposDeJoin($t_1$,$t_2$,$b_1$) $\igobs$ camposDeJoin($t_1$,$t_2$,$b_2$) $\wedge$  $\qquad$ QueTriggerea?($t_1$,$b_1$) $\igobs$ QueTriggerea?($t_1$,$b_1$)) $\wedge$ ($\forall$ $t_3$: tabla) $t_3$ $\in$ tablas($b_1$) $\impluego$ (\#Modificaciones($t_3$, $b_1$) $\igobs$ \#Modificaciones($t_3$, $b_2$)) \Bigg)}
+\tadIgualdadObservacionalSimple{($\forall$$b_1$,$b_2$:bdd) $b_1$ $\igobs$ $b_2$ $\Leftrightarrow$ \Bigg(tablas($b_1$)$\igobs$tablas($b_2$) $\yluego$ \Big(($\forall t_1$,$t_2$:tabla) ($t_1$$\in$tablas($b_1$)$\wedge$$t_2$$\in$tablas($b_1$))\impluego\big(camposDeJoin($t_1$,$t_2$,$b_1$)$\igobs$camposDeJoin($t_1$,$t_2$,$b_2$) \\$\wedge$ QueTriggerea?($t_1$,$b_1$)$\igobs$QueTriggerea?($t_1$,$b_1$) \\$\wedge$ \#Modificaciones($t_1$,$b_2$)$\igobs$\#Modificaciones($t_1$,$b_2$)\big)\Big)\Bigg)}
 
 \tadGeneros{bdd}
-\tadExporta{**reg, generadores, observadores, otras operaciones}
-\tadUsa{\tadNombre{**Nat}, \tadNombre{String}, \tadNombre{Campo}, \tadNombre{Tipo}}
+\tadExporta{bdd, generadores, observadores, otras operaciones}
+\tadUsa{\tadNombre{Nat}, \tadNombre{String}, \tadNombre{Campo}, \tadNombre{Tipo}, \tadNombre{Registro}, \tadNombre{Tabla}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadObservadores
 \tadOperacion{Tablas}{bdd}{conj(tabla)}{}
-\bigskip
 
 \tadOperacion{CamposDeJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{conj(campo)}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b)}
-\bigskip
 
-\tadOperacion{QueTriggerea?}{tabla $\quad$ t, bdd $\quad$ b}{conj(tabla)}{t $\in$ tablas(b)}
-\bigskip
+\tadOperacion{QueTriggerea?}{tabla $\quad$ $t$, bdd $\quad$ b}{conj(tabla)}{$t\in$tablas(b)}
 
-\tadOperacion{\#Modificaciones}{tabla  $\quad$ t, bdd  $\quad$ $b$}{nat}{t $\in$ tablas($b$)}
+\tadOperacion{\#Modificaciones}{tabla  $\quad$ $t$, bdd  $\quad$ $b$}{nat}{$t$ $\in$ tablas($b$)}
 \bigskip
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -42,28 +39,21 @@
 %\tadAlinearFunciones{Nat?~}{string}
 
 \tadOperacion{Nuevobdd}{}{bdd}{}
-\bigskip
 
-\tadOperacion{AgTabla}{tabla $\quad$ t,bdd $\quad$ b}{bdd}{}
-\bigskip
+\tadOperacion{AgTabla}{tabla $\quad$ $t$,bdd $\quad$ $b$}{bdd}{}
 
-\tadOperacion{AgJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\wedge$ c $\in$ (claves($t_1$) $\cup$ claves($t_2$))}
-\bigskip
+\tadOperacion{AgJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ $c$, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas($b$) $\wedge$ $t_2$ $\in$ tablas($b$) $\wedge$ $c\in$(claves($t_1$) $\cup$ claves($t_2$))}
 
-\tadOperacion{DefTrigger}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\wedge$ (claves($t_2$) $\subseteq$ claves($t_1$)) $\wedge$ $t_1$ $\neq$ $t_2$}
-\bigskip
+\tadOperacion{DefTrigger}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ $b$}{bdd}{$t_1$ $\in$ tablas($b$) $\wedge$ $t_2$ $\in$ tablas($b$) $\wedge$ (claves($t_2$)$\subseteq$claves($t_1$)) $\wedge$ $\neg$($t_1$=$_2$)}
 
-\tadOperacion{ElimJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{bdd}{\{$t_1$, $t_2$\} $\in$ tablas(b) $\yluego$ c $\in$ CamposDeJoin($t_1$, $t_2$, b)}
-\bigskip
+\tadOperacion{ElimJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ $c$, bdd $\quad$ b}{bdd}{($t_1\in$tablas($b$) $\wedge$ $t_2 \in$tablas($b$)) $\yluego$ $c$ $\in$ CamposDeJoin($t_1$, $t_2$, b)}
 
-\tadOperacion{ElimTrigger}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas(b) $\yluego$ $t_2$ $\in$ QueTriggerea?($t_1$, b)}
-\bigskip
+\tadOperacion{ElimTrigger}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ $b$}{bdd}{$t_1$ $\in$ tablas($b$) $\yluego$ $t_2$ $\in$ QueTriggerea?($t_1$, $b$)}
 
-\tadOperacion{**AgregarReg}{reg $\quad$ r, tabla $\quad$ t, bdd $\quad$ b}{bdd}{t $\in$ tablas(b) $\yluego$ (($\forall$ $t_1$:Tabla)($t_1$ $\in$ QueTriggerea?(t,b))) $\impluego$ (($\forall$ c:Campo)(c $\in$ claves($t_1$))) $\impluego$ (($\forall$ $r_1$:reg)($r_1$ $\in$ registros($t_1$))) NoRepiten($r_1$, r, c)}
+\tadOperacion{AgregarReg}{reg $\quad$ $r$, tabla $\quad$ $t$, bdd $\quad$ b}{bdd}{t $\in$ tablas($b$) $\yluego$ (($\forall$ $t_1$:Tabla)($t_1$ $\in$ QueTriggerea?($t$,$b$))) $\impluego$ \bigg(($\forall$ $c$:Campo)\Big($c \in$claves($t_1$) $\impluego$ \big(($\forall$ $r_1$:reg)\big($r_1\in$registros($t_1$) $\impluego$ NoRepiten($r_1, r, c$)\big)\Big)\bigg)}
 \bigskip
 
 \tadOperacion{ElimRegStr}{campo $\quad$ $c$ ,string $\quad$ $s$,tabla $\quad$ $t_1$, bdd $\quad$ $b$}{bdd}{$\neg$(Nat?(tipo($c$) $\wedge$ $t_1$ $\in$ tablas($b$)}
-\bigskip
 
 \tadOperacion{ElimRegNat}{campo $\quad$ $c$ ,nat $\quad$ $n$,tabla $\quad$ $t_1$ , bdd $\quad$ $b$}{bdd}{(Nat?(tipo($c$) $\wedge$ $t_1$ $\in$ tablas($b$)}
 \bigskip
@@ -72,15 +62,12 @@
 %\tadAlinearFunciones{bool, Tipo}
 
 \tadOperacion{hayJoin?}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ b}{bool}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b)}
-\bigskip
 
 \tadOperacion{verJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{tabla}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\yluego$ c $\in$ CamposdeJoin($t_1$, $t_2$, b)}
-\bigskip
 
-\tadOperacion{****TabMasModificada}{bdd}{tabla}{}
-\bigskip
+\tadOperacion{TabMasModificada}{bdd}{tabla}{$\neg\emptyset?$(tablas($b$))}
 
-\tadOperacion{MasMod}{conj(tabla) $\quad$ ts, bdd $\quad$ b}{tabla}{ts $\subseteq$ tablas(b)}
+\tadOperacion{MasMod}{conj(tabla) $\quad$ $ts$, bdd $\quad$ $b$}{tabla}{$ts \subseteq$tablas(b)}
 \bigskip
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -89,114 +76,85 @@
 
 % OB título
 \tadAxioma{Tablas(Nuevobdd)}{ $\emptyset$ }
-\bigskip
 
-\tadAxioma{Tablas(AgTabla($t_1$,$b$))}{\IF $t_1$ $\in$ tablas(b) THEN tablas(b) ELSE Ag($t_1$,tablas($b$)) FI}
-\bigskip
+\tadAxioma{Tablas(AgTabla($t_1$,$b$))}{Ag($t_1$,tablas($b$))}
 
 \tadAxioma{Tablas(AgJoin($t_1$,$t_2$,$c$,$b$))}{Tablas($b$)}
-\bigskip
 
 \tadAxioma{Tablas(DefTrigger($t_1$,$t_2$,$b$))}{Tablas($b$)}
-\bigskip
 
-\tadAxioma{Tablas(ElimJoin($t_1$, $t_2$, c, b))}{Tablas(b)}
-\bigskip
+\tadAxioma{Tablas(ElimJoin($t_1$, $t_2, c, b$))}{Tablas($b$)}
 
-\tadAxioma{Tablas(ElimTrigger($t_1$, $t_2$, b))}{Tablas(b)}
-\bigskip
+\tadAxioma{Tablas(ElimTrigger($t_1, t_2, b$))}{Tablas($b$)}
 
-\tadAxioma{Tablas(AgregarReg(r, t, b))}{Tablas(b)-Ag(t, QueTriggerea?(t, b))) $\cup$ Ag(A\~nadirReg(t,r), Triggereados(r, t, QueTriggerea?(t, b)))}
-\bigskip
+\tadAxioma{Tablas(AgregarReg($r, t, b$))}{\Big(Tablas($b$)-Ag($t$,QueTriggerea?($t, b$))\Big) $\cup$ \\Ag\Big(A\~nadirReg($t,r$),Triggereados($r, t$,QueTriggerea?($t, b$))\Big)}
 
-\tadAxioma{Tablas(ElimRegStr(c, s, t, b))}{Ag(borrarPalabra(t, c, s), Tablas(b)-t)}
-\bigskip
+\tadAxioma{Tablas(ElimRegStr($c, s, t, b$))}{Ag(borrarPalabra($t, c, s$), Tablas($b$)-Ag($t,\emptyset$)}
 
-\tadAxioma{Tablas(ElimRegNat(c, n, t, b))}{Ag(borrarValor(t, c, n), Tablas(b)-t)}
-\bigskip
-
-\tadAxioma{Tablas(ElimJoin($t_1$,$t_2$,$c$,$b$))}{Tablas($b$)}
-\bigskip
-
-\tadAxioma{Tablas(AgregarReg($r$,$t$,$b$))}{Tablas($b$) - Ag($t$,QueTriggerea?($t$,$b$)))$\cup$ Ag(a\~nadirReg($t$,$r$),Triggereados($r$,$t$,QueTriggerea?($t$,$b$)))}
+\tadAxioma{Tablas(ElimRegNat($c, n, t, b$))}{Ag(borrarValor($t, c, n$), Tablas($b$)-Ag($t,\emptyset$))}
 \bigskip
 
 \tadAxioma{CamposDeJoin($t_1$,$t_2$,AgTabla($t_3$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
-\bigskip
 
 \tadAxioma{CamposDeJoin($t_1$,$t_2$,AgJoin($t_3$,$t_4$,$c$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
-\bigskip
 
 \tadAxioma{CamposDeJoin($t_1$,$t_2$,DefTrigger($t_3$,$t_4$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
-\bigskip
 
-\tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimJoin($t_3$, $t_4$, c, b))}{\IF (($t_1$ $\igobs$ $t_3$ $\vee$ $t_1$ $\igobs$ $t_4$) $\wedge$ ($t_2$ $\igobs$ $t_3$ $\vee$ $t_2$ $\igobs$ $t_4$)) THEN c - CamposDeJoin($t_1$, $t_2$, b) ELSE CamposDeJoin($t_1$, $t_2$, b) FI}
-\bigskip
+\tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimJoin($t_3$, $t_4$, c, b))}{\IF (($t_1$ = $t_3$ $\vee$ $t_1$ = $t_4$) $\wedge$ ($t_2$ = $t_3$ $\vee$ $t_2$ = $t_4$)) THEN c - CamposDeJoin($t_1$, $t_2$, b) ELSE CamposDeJoin($t_1$, $t_2$, b) FI}
 
 \tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimTrigger($t_3$, $t_4$, b))}{CamposDeJoin($t_1$, $t_2$, b)}
-\bigskip
 
 \tadAxioma{CamposDeJoin($t_1$, $t_2$, AgregraReg(r, $t_3$,b))}{CamposDeJoin($t_1$, $t_2$, b)}
-\bigskip
 
 \tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimRegStr(c, s, $t_3$, b))}{CamposDeJoin($t_1$, $t_2$, b)}
-\bigskip
 
 \tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimRegNat(c, n, $t_3$, b))}{CamposDeJoin($t_1$, $t_2$, b)}
 \bigskip
 
 \tadAxioma{QueTriggerea?($t_1$, AgTabla($t_2$,$b$))}{QueTriggerea?($t_1$,$b$)}
-\bigskip
 
 \tadAxioma{QueTriggerea?($t_1$, AgJoin($t_2$,$t_3$,$c$,$b$))}{QueTriggerea?($t_1$,$b$)}
-\bigskip
 
-\tadAxioma{QueTriggerea?($t_1$, DefTrigger($t_2$,$t_3$,$b$))}{\IF $\neg$($t_1$ $\igobs$ $t_2$ $\wedge$ $t_1$ $\igobs$ $t_3$) THEN QueTriggerea?($t_1$,$b$) ELSE {\IF ($t_1$ $\igobs$ $t_2$) THEN Ag($t_3$,QueTriggerea?($t_1$,$b$) ELSE QueTriggerea?($t_1$,$b$) FI} FI}
-\bigskip
+\tadAxioma{QueTriggerea?($t_1$, DefTrigger($t_2$,$t_3$,$b$))}{\IF $\neg (t_1 = t_2)$ THEN Ag($t_3$, QueTriggerea?($t_1, b$)) ELSE QueTriggerea?($t_1, b$) FI}
 
 \tadAxioma{QueTriggerea?($t_1$, ElimJoin($t_2$,$t_3$,$c$, $b$))}{QueTriggerea?($t_1$,$b$)}
-\bigskip
+
+\tadAxioma{QueTriggerea?($t_1$, ElimTrigger($t_2$,$t_3$,$b$))}{\IF $\neg (t_1 = t_2)$ THEN QueTriggerea?($t_1, b$)-Ag($t_3,\emptyset$) ELSE QueTriggerea?($t_1, b$) FI}
 
 \tadAxioma{QueTriggerea?($t_1$, AgregarReg($r$, $t_2$, $b$))}{QueTriggerea?($t_1$,$b$)}
-\bigskip
 
 \tadAxioma{QueTriggerea?($t_1$, ElimRegStr($c$, $s$, $t_2$, $b$))}{QueTriggerea?($t_1$,$b$)}
-\bigskip
 
 \tadAxioma{QueTriggerea?($t_1$, ElimRegNat($c$, $n$, $t_2$, $b$))}{QueTriggerea?($t_1$,$b$)}
 \bigskip
 
 \tadAxioma{\#Modificaciones($t_1$, AgTabla($t_2$, $b$))}{\#Modificaciones($t_1$, $b$)}
-\bigskip
 
 \tadAxioma{\#Modificaciones($t_1$, AgJoin($t_2$, $t_3$, $c$, $b$))}{\#Modificaciones($t_1$, $b$)}
-\bigskip
 
 \tadAxioma{\#Modificaciones($t_1$, ElimJoin($t_2$, $t_3$, $c$, $b$))}{\#Modificaciones($t_1$, $b$)}
-\bigskip
 
 \tadAxioma{\#Modificaciones($t_1$, ElimTrigger($t_2$, $t_3$, $b$))}{\#Modificaciones($t_1$, $b$)}
+
+\tadAxioma{\#Modificaciones($t_1$, DefTrigger($t_2$, $t_3$, $b$))}{\#Modificaciones($t_1$, $b$)}
+
+\tadAxioma{\#Modificaciones($t_1$, AgregarReg($r$, $t_2$, $b$))}{\#Modificaciones($t_1, b$) + $\beta$($t_1\in$QueTriggerea?($t_2,b$) $\vee$ $t_1 = t_2$)}
+
+\tadAxioma{\#Modificaciones($t_1$, ElimRegStr($c$, $s$, $t_2$, $b$))}{\#Modificaciones($t_1$, $b$) + $\beta$($t_1$=$t_2$)*\#AparicionesPal($t_1$, $c$, $s$)}
+
+\tadAxioma{\#Modificaciones($t_1$, ElimRegNat($c$, $n$, $t_2$, $b$))}{\#Modificaciones($t_1$, $b$) + $\beta$($t_1$=$t_2$)*\#AparicionesVal($t_1$, $c$, $n$)}
 \bigskip
 
-\tadAxioma{\#Modificaciones($t_1$, AgregarReg($r$, $t_2$, $b$))}{\#Modificaciones($t_1$, $b$) + $\beta$($t_1$ $\in$ QueTriggerea?($t_2$, $b$) $\vee$ $t_1$ $\igobs$ $t_2$)}
-\bigskip
-
-\tadAxioma{\#Modificaciones($t_1$, ElimRegStr($c$, $s$, $t_2$, $b$))}{\#Modificaciones($t_1$, $b$) + $\beta$($t_1$ $\igobs$ $t_2$) * \#AparicionesPal($t_1$, $c$, $s$)}
-\bigskip
-
-\tadAxioma{\#Modificaciones($t_1$, ElimRegNat($c$, $n$, $t_2$, $b$))}{\#Modificaciones($t_1$, $b$) + $\beta$($t_1$ $\igobs$ $t_2$) * \#AparicionesVal($t_1$, $c$, $n$)}
-\bigskip
-
-\tadAxioma{HayJoin?($t_1$, $t_2$, b)}{\IF $\emptyset$?(camposDeJoin($t_1$, $t_2$, b) THEN false ELSE true FI}
+\tadAxioma{HayJoin?($t_1, t_2, b$)}{$\neg\emptyset$?\big(camposDeJoin($t_1, t_2, b$)\big)}
 \bigskip
 
 \tadAxioma{VerJoin($t_1,t_2,c,b$)}{UnirTablas($t_1,t_2,c$,registros($t_2$))}
 \bigskip
 
-\tadAxioma{TabMasModificada($b$)}{MasMod(tablas(b), b)}
+\tadAxioma{TabMasModificada($b$)}{MasMod(tablas($b$), $b$)}
 \bigskip
 
-\tadAxioma{MasMod($ts$, $b$)}{\IF $\emptyset$?(sinUno(ts)) THEN sinUno(ts) ELSE {\IF \#Modificaciones(DameUno(ts), b) $\geqslant$ \#Modificaciones(MasMod(sinUno(ts), b)) THEN DameUno(ts) ELSE MasMod(SinUno(ts, b))FI} FI}
+\tadAxioma{MasMod($ts$, $b$)}{\IF $\emptyset$?(sinUno($ts$)) THEN DameUno($ts$) ELSE {\IF \#Modificaciones(DameUno($ts$), $b$) $\geqslant$ \#Modificaciones(MasMod(sinUno($ts$), $b$)) THEN DameUno($ts$) ELSE MasMod(SinUno($ts$), $b$)FI} FI}
 \bigskip
 
 \end{tad}

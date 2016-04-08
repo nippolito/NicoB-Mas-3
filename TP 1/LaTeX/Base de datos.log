@@ -1,13 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.4.6)  7 APR 2016 11:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.4.6)  8 APR 2016 00:16
 entering extended mode
-**"./Base de datos.tex"
-("Base de datos.tex"
-LaTeX2e <2015/10/01> patch level 2
-Babel <3.9n> and hyphenation patterns for 69 languages loaded.
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cls
-"
+**"Base de Datos.tex"
+("Base de Datos.tex"
+LaTeX2e <2014/05/01>
+Babel <3.9l> and hyphenation patterns for 68 languages loaded.
+("C:\Program Files\MikTex 2.9\tex/latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size10.clo"
+("C:\Program Files\MikTex 2.9\tex/latex\base\size10.clo"
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -22,27 +21,22 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometr
-y.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.
-sty"
+("C:\Program Files\MikTex 2.9\tex/latex\graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifpdf
-.sty"
+("C:\Program Files\MikTex 2.9\tex/generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifvte
-x.sty"
+("C:\Program Files\MikTex 2.9\tex/generic\oberdiek\ifvtex.sty"
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxete
-x.sty"
+("C:\Program Files\MikTex 2.9\tex/generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count87
@@ -58,59 +52,50 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks15
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometr
-y.cfg"))
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.st
-y"
-Package: inputenc 2015/03/17 v1.2c Input encoding file
+("C:\Program Files\MikTex 2.9\tex/latex\geometry\geometry.cfg"))
+("C:\Program Files\MikTex 2.9\tex/latex\base\inputenc.sty"
+Package: inputenc 2014/04/30 v1.2b Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\latin1.def"
-File: latin1.def 2015/03/17 v1.2c Input encoding file
+("C:\Program Files\MikTex 2.9\tex/latex\base\latin1.def"
+File: latin1.def 2014/04/30 v1.2b Input encoding file
 ))
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.sty
-"
+("C:\Program Files\MikTex 2.9\tex/latex\base\fontenc.sty"
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
- ("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.def"
+
+("C:\Program Files\MikTex 2.9\tex/latex\base\t1enc.def"
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.st
-y"
-Package: babel 2016/01/08 3.9n The Babel package
+("C:\Program Files\MikTex 2.9\tex/latex\babel\babel.sty"
+Package: babel 2014/09/25 3.9l The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\bblopts
-.cfg"
+("C:\Program Files\MikTex 2.9\tex/latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\babel-spanish\sp
-anish.ldf"
-Language: spanish.ldf 2016/01/15 v5.0o Spanish support from the babel system
+("C:\Program Files\MikTex 2.9\tex/latex\babel-spanish\spanish.ldf"
+Language: spanish.ldf 2014/04/24 v5.0n Spanish support from the babel system
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.de
-f"
-File: babel.def 2016/01/08 3.9n Babel common definitions
+("C:\Program Files\MikTex 2.9\tex/latex\babel\babel.def"
+File: babel.def 2014/09/25 3.9l Babel common definitions
 \babel@savecnt=\count90
 \U@D=\dimen111
 )
 \es@quottoks=\toks18
 \es@quotdepth=\count91
-Package babel Info: Making " an active character on input line 533.
-Package babel Info: Making . an active character on input line 634.
-Package babel Info: Making < an active character on input line 679.
-Package babel Info: Making > an active character on input line 679.
+Package babel Info: Making " an active character on input line 516.
+Package babel Info: Making . an active character on input line 617.
+Package babel Info: Making < an active character on input line 662.
+Package babel Info: Making > an active character on input line 662.
 ))
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\indentfirs
-t.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\tools\indentfirst.sty"
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fancyhdr\fancyhd
-r.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\fancyhdr\fancyhdr.sty"
 \fancy@headwidth=\skip43
 \f@ncyO@elh=\skip44
 \f@ncyO@erh=\skip45
@@ -121,48 +106,38 @@ r.sty"
 \f@ncyO@olf=\skip50
 \f@ncyO@orf=\skip51
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\latexsym.st
-y"
+("C:\Program Files\MikTex 2.9\tex/latex\base\latexsym.sty"
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
-(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lastpage\lastpag
-e.sty"
-Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
+("C:\Program Files\MikTex 2.9\tex/latex\lastpage\lastpage.sty"
+Package: lastpage 2013/01/28 v1.2l Refers to last page's name (HMM; JPG)
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\aed2-symb\aed2-s
-ymb.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\aed2-symb\aed2-symb.sty"
 Package: aed2-symb 2004/04/17 - Para componer simbolitos frecuentemente usados 
 en AED2
 
 Cargando package 'aed2-symb'
-
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.
-sty"
+("C:\Program Files\MikTex 2.9\tex/latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip52
 
 For additional information on amsmath, use the `?' option.
-
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstext.
-sty"
+("C:\Program Files\MikTex 2.9\tex/latex\amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen.s
-ty"
+("C:\Program Files\MikTex 2.9\tex/latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks19
 \ex@=\dimen112
 ))
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.s
-ty"
+("C:\Program Files\MikTex 2.9\tex/latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen113
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn.s
-ty"
+("C:\Program Files\MikTex 2.9\tex/latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count92
@@ -203,33 +178,27 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssymb
-.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\amsfonts\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfont
-s.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup5
 \symAMSb=\mathgroup6
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\xspace.sty
-"
+("C:\Program Files\MikTex 2.9\tex/latex\tools\xspace.sty"
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xargs\xargs.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\xargs\xargs.sty"
 Package: xargs 2008/03/22 v1.1  extended macro definitions  (mpg)
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.
-sty"
+("C:\Program Files\MikTex 2.9\tex/latex\xkeyval\xkeyval.sty"
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\generic\xkeyval\xkeyva
-l.tex"
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\generic\xkeyval\xkvuti
-ls.tex"
+("C:\Program Files\MikTex 2.9\tex/generic\xkeyval\xkeyval.tex"
+("C:\Program Files\MikTex 2.9\tex/generic\xkeyval\xkvutils.tex"
 \XKV@toks=\toks24
 \XKV@tempa@toks=\toks25
 )
@@ -240,23 +209,20 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 \xargs@toksa=\toks26
 \xargs@toksb=\toks27
 ))
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\aed2-itef\aed2-i
-tef.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\aed2-itef\aed2-itef.sty"
 Package: aed2-itef 2010/03/16 - if-then-else-fi en lenguaje de TADs.
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 Cargando package 'itef' (2010/03/16)
 \itefIndentacion=\skip55
 \itef@widthUnaLinea=\skip56
 \itef@linewidth=\skip57
-)
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\aed2-tad\aed2-ta
-d.sty"
+) ("C:\Program Files\MikTex 2.9\tex/latex\aed2-tad\aed2-tad.sty"
 Package: aed2-tad 2011/04/04 - Para especificar TADs en formato AED2
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\calc.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\tools\calc.sty"
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count106
 \calc@Bcount=\count107
@@ -264,13 +230,12 @@ Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Bdimen=\dimen122
 \calc@Askip=\skip58
 \calc@Bskip=\skip59
-LaTeX Info: Redefining \setlength on input line 80.
-LaTeX Info: Redefining \addtolength on input line 81.
+LaTeX Info: Redefining \setlength on input line 75.
+LaTeX Info: Redefining \addtolength on input line 76.
 \calc@Ccount=\count108
 \calc@Cskip=\skip60
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\aed2-tokenizer\a
-ed2-tokenizer.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\aed2-tokenizer\aed2-tokenizer.sty"
 Package: aed2-tokenizer 2010/03/12
 )
 Package aed2-tad Info: Cargando package 'tad' (04/04/2011) on input line 26.
@@ -294,17 +259,14 @@ Package aed2-tad Info: Cargando package 'tad' (04/04/2011) on input line 26.
 \tadAxioma@lenEquiv=\skip77
 \tadAxioma@lenDerecha=\skip78
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperre
-f.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\hyperref\hyperref.sty"
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsu
-b-hyperref.sty"
+("C:\Program Files\MikTex 2.9\tex/generic\oberdiek\hobsub-hyperref.sty"
 Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
 
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsu
-b-generic.sty"
+("C:\Program Files\MikTex 2.9\tex/generic\oberdiek\hobsub-generic.sty"
 Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
@@ -343,26 +305,22 @@ Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
 Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\auxhook
-.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\oberdiek\auxhook.sty"
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvoptio
-ns.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen123
 \Hy@linkcounter=\count109
 \Hy@pagecounter=\count110
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.
-def"
+("C:\Program Files\MikTex 2.9\tex/latex\hyperref\pd1enc.def"
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
 \Hy@SavedSpaceFactor=\count111
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyperre
-f.cfg"
+("C:\Program Files\MikTex 2.9\tex/latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 4319.
@@ -375,7 +333,7 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count112
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\url\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -400,23 +358,22 @@ LaTeX Info: Redefining \pageref on input line 6369.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex
-.def"
+("C:\Program Files\MikTex 2.9\tex/latex\hyperref\hpdftex.def"
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 \Fld@listcount=\count117
 \c@bookmark@seq@number=\count118
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerunfi
-lecheck.sty"
+("C:\Program Files\MikTex 2.9\tex/latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip79
-) ("Base de datos.aux")
-\openout1 = `"Base de datos.aux"'.
-
+)
+("Base de Datos.aux"
+LaTeX Info: Redefining \. on input line 23.
+LaTeX Info: Redefining \% on input line 23.
+)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
@@ -469,27 +426,26 @@ LaTeX Font Info:    ... okay on input line 14.
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
 Package lastpage Info: Please have a look at the pageslts package at
-(lastpage)             https://www.ctan.org/pkg/pageslts
+(lastpage)             http://www.ctan.org/tex-archive/ 
+(lastpage)             macros/latex/contrib/pageslts/ 
+(lastpage)             or
+(lastpage)             http://www.ctan.org/tex-archive/ 
+(lastpage)             install/macros/latex/contrib/pageslts.tds.zip
 (lastpage)             ! on input line 14.
 \AtBeginShipoutBox=\box29
-
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\color.s
-ty"
+("C:\Program Files\MikTex 2.9\tex/latex\graphics\color.sty"
 Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\color.c
-fg"
+("C:\Program Files\MikTex 2.9\tex/latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: pdftex.def on input line 142.
+Package color Info: Driver file: pdftex.def on input line 137.
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdftex-def\pdfte
-x.def"
+("C:\Program Files\MikTex 2.9\tex/latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 \Gread@gobject=\count119
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.
-mkii"
+("C:\Program Files\MikTex 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count120
 \scratchdimen=\dimen127
@@ -504,13 +460,10 @@ mkii"
 \everyMPtoPDFconversion=\toks29
 )))
 Package hyperref Info: Link coloring ON on input line 14.
-
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref
-.sty"
+ ("C:\Program Files\MikTex 2.9\tex/latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\getti
-tlestring.sty"
+("C:\Program Files\MikTex 2.9\tex/generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count126
@@ -518,10 +471,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 14.
 LaTeX Info: Redefining \pageref on input line 14.
 LaTeX Info: Redefining \nameref on input line 14.
- ("Base de datos.out") ("Base de datos.out")
-\@outlinefile=\write3
-\openout3 = `"Base de datos.out"'.
 
+("Base de Datos.out") ("Base de Datos.out")
+\@outlinefile=\write3
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 16.
 Package babel Info: Redefining spanish shorthand >>
@@ -536,201 +488,217 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 16.
 LaTeX Font Info:    Try loading font information for U+lasy on input line 19.
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ulasy.fd"
+("C:\Program Files\MikTex 2.9\tex/latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Try loading font information for U+msa on input line 19.
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
-"
+("C:\Program Files\MikTex 2.9\tex/latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 19.
 
-("F:\Users\Nicolas\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
-"
+("C:\Program Files\MikTex 2.9\tex/latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 1360) in paragraph at lines 19--19
-[]\T1/cmr/m/n/10 ($\OMS/cmsy/m/n/10 8$ $\OML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 ,$\
-OML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 :bdd) ($\OML/cmm/m/it/10 b[]$ $\OT1/cmr/m/n/
-10 =[]$ $\OML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 ) $\OMS/cmsy/m/n/10 ,$ [] \T1/cmr/
-m/n/10 tablas($\OML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 ) $\OT1/cmr/m/n/10 =[]$ \T1/
-cmr/m/n/10 tablas($\OML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 ) $\OMS/cmsy/m/n/10 ^$ \
-T1/cmr/m/n/10 (($\OMS/cmsy/m/n/10 8$ $\OML/cmm/m/it/10 t[]$\T1/cmr/m/n/10 ,$\OM
-L/cmm/m/it/10 t[]$\T1/cmr/m/n/10 :tabla)($\OMS/cmsy/m/n/10 f$ $\OML/cmm/m/it/10
- t[]$\T1/cmr/m/n/10 , $\OML/cmm/m/it/10 t[]$ $\OMS/cmsy/m/n/10 g$
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\T1/cmr/m/n/10 ($\OMS/cmsy/m/n/10 8$$\OML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 ,$\O
+ML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 :bdd) $\OML/cmm/m/it/10 b[]$ $\OT1/cmr/m/n/10
+ =[]$ $\OML/cmm/m/it/10 b[]$ $\OMS/cmsy/m/n/10 ,$ []\T1/cmr/m/n/10 tablas($\OML
+/cmm/m/it/10 b[]$\T1/cmr/m/n/10 )$\OT1/cmr/m/n/10 =[]$\T1/cmr/m/n/10 tablas($\O
+ML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 ) $\OMS/cmsy/m/n/10 ^[]$ []\T1/cmr/m/n/10 ($\
+OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 t[]$\T1/cmr/m/n/10 ,$\OML/cmm/m/it/10 t[]$\T1
+/cmr/m/n/10 :tabla)
  []
 
 
-Underfull \hbox (badness 1360) in paragraph at lines 19--19
-[]\T1/cmr/m/n/10 ($\OMS/cmsy/m/n/10 8$ $\OML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 ,$\
-OML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 :bdd) ($\OML/cmm/m/it/10 b[]$ $\OT1/cmr/m/n/
-10 =[]$ $\OML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 ) $\OMS/cmsy/m/n/10 ,$ [] \T1/cmr/
-m/n/10 tablas($\OML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 ) $\OT1/cmr/m/n/10 =[]$ \T1/
-cmr/m/n/10 tablas($\OML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 ) $\OMS/cmsy/m/n/10 ^$ \
-T1/cmr/m/n/10 (($\OMS/cmsy/m/n/10 8$ $\OML/cmm/m/it/10 t[]$\T1/cmr/m/n/10 ,$\OM
-L/cmm/m/it/10 t[]$\T1/cmr/m/n/10 :tabla)($\OMS/cmsy/m/n/10 f$ $\OML/cmm/m/it/10
- t[]$\T1/cmr/m/n/10 , $\OML/cmm/m/it/10 t[]$ $\OMS/cmsy/m/n/10 g$
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\T1/cmr/m/n/10 ($\OMS/cmsy/m/n/10 8$$\OML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 ,$\O
+ML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 :bdd) $\OML/cmm/m/it/10 b[]$ $\OT1/cmr/m/n/10
+ =[]$ $\OML/cmm/m/it/10 b[]$ $\OMS/cmsy/m/n/10 ,$ []\T1/cmr/m/n/10 tablas($\OML
+/cmm/m/it/10 b[]$\T1/cmr/m/n/10 )$\OT1/cmr/m/n/10 =[]$\T1/cmr/m/n/10 tablas($\O
+ML/cmm/m/it/10 b[]$\T1/cmr/m/n/10 ) $\OMS/cmsy/m/n/10 ^[]$ []\T1/cmr/m/n/10 ($\
+OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 t[]$\T1/cmr/m/n/10 ,$\OML/cmm/m/it/10 t[]$\T1
+/cmr/m/n/10 :tabla)
+ []
+
+
+Overfull \hbox (125.78053pt too wide) in paragraph at lines 19--19
+[]\T1/cmr/m/n/7 ($\OMS/cmsy/m/n/7 8$$\OML/cmm/m/it/7 b[]$\T1/cmr/m/n/7 ,$\OML/c
+mm/m/it/7 b[]$\T1/cmr/m/n/7 :bdd) $\OML/cmm/m/it/7 b[]$ $\OT1/cmr/m/n/7 =[]$ $\
+OML/cmm/m/it/7 b[]$ $\OMS/cmsy/m/n/7 ,$ []\T1/cmr/m/n/7 tablas($\OML/cmm/m/it/7
+ b[]$\T1/cmr/m/n/7 )$\OT1/cmr/m/n/7 =[]$\T1/cmr/m/n/7 tablas($\OML/cmm/m/it/7 b
+[]$\T1/cmr/m/n/7 ) $\OMS/cmsy/m/n/7 ^[]$ []\T1/cmr/m/n/7 ($\OMS/cmsy/m/n/7 8\OM
+L/cmm/m/it/7 t[]$\T1/cmr/m/n/7 ,$\OML/cmm/m/it/7 t[]$\T1/cmr/m/n/7 :tabla) ($\O
+ML/cmm/m/it/7 t[]$$\OMS/cmsy/m/n/7 2$\T1/cmr/m/n/7 tablas($\OML/cmm/m/it/7 b[]$
+\T1/cmr/m/n/7 )$\OMS/cmsy/m/n/7 ^$$\OML/cmm/m/it/7 t[]$$\OMS/cmsy/m/n/7 2$\T1/c
+mr/m/n/7 tablas($\OML/cmm/m/it/7 b[]$\T1/cmr/m/n/7 ))$\OMS/cmsy/m/n/7 )[]$[]\T1
+/cmr/m/n/7 camposDeJoin($\OML/cmm/m/it/7 t[]$\T1/cmr/m/n/7 ,$\OML/cmm/m/it/7 t[
+]$\T1/cmr/m/n/7 ,$\OML/cmm/m/it/7 b[]$\T1/cmr/m/n/7 )$\OT1/cmr/m/n/7 =[]$\T1/cm
+r/m/n/7 camposDeJoin($\OML/cmm/m/it/7 t[]$\T1/cmr/m/n/7 ,$\OML/cmm/m/it/7 t[]$\
+T1/cmr/m/n/7 ,$\OML/cmm/m/it/7 b[]$\T1/cmr/m/n/7 ) 
+ []
+
+
+Overfull \hbox (69.57964pt too wide) in paragraph at lines 19--19
+[]\T1/cmr/m/n/5 ($\OMS/cmsy/m/n/5 8$$\OML/cmm/m/it/5 b[]$\T1/cmr/m/n/5 ,$\OML/c
+mm/m/it/5 b[]$\T1/cmr/m/n/5 :bdd) $\OML/cmm/m/it/5 b[]$ $\OT1/cmr/m/n/5 =[]$ $\
+OML/cmm/m/it/5 b[]$ $\OMS/cmsy/m/n/5 ,$ []\T1/cmr/m/n/5 tablas($\OML/cmm/m/it/5
+ b[]$\T1/cmr/m/n/5 )$\OT1/cmr/m/n/5 =[]$\T1/cmr/m/n/5 tablas($\OML/cmm/m/it/5 b
+[]$\T1/cmr/m/n/5 ) $\OMS/cmsy/m/n/5 ^[]$ []\T1/cmr/m/n/5 ($\OMS/cmsy/m/n/5 8\OM
+L/cmm/m/it/5 t[]$\T1/cmr/m/n/5 ,$\OML/cmm/m/it/5 t[]$\T1/cmr/m/n/5 :tabla) ($\O
+ML/cmm/m/it/5 t[]$$\OMS/cmsy/m/n/5 2$\T1/cmr/m/n/5 tablas($\OML/cmm/m/it/5 b[]$
+\T1/cmr/m/n/5 )$\OMS/cmsy/m/n/5 ^$$\OML/cmm/m/it/5 t[]$$\OMS/cmsy/m/n/5 2$\T1/c
+mr/m/n/5 tablas($\OML/cmm/m/it/5 b[]$\T1/cmr/m/n/5 ))$\OMS/cmsy/m/n/5 )[]$[]\T1
+/cmr/m/n/5 camposDeJoin($\OML/cmm/m/it/5 t[]$\T1/cmr/m/n/5 ,$\OML/cmm/m/it/5 t[
+]$\T1/cmr/m/n/5 ,$\OML/cmm/m/it/5 b[]$\T1/cmr/m/n/5 )$\OT1/cmr/m/n/5 =[]$\T1/cm
+r/m/n/5 camposDeJoin($\OML/cmm/m/it/5 t[]$\T1/cmr/m/n/5 ,$\OML/cmm/m/it/5 t[]$\
+T1/cmr/m/n/5 ,$\OML/cmm/m/it/5 b[]$\T1/cmr/m/n/5 ) 
  []
 
 
 Overfull \hbox (17.50003pt too wide) in paragraph at lines 19--19
-$[]$ 
+[]$ 
+ []
+
+
+Underfull \hbox (badness 8000) in paragraph at lines 53--53
+[]\T1/cmr/m/n/7 t $\OMS/cmsy/m/n/7 2$ \T1/cmr/m/n/7 tablas($\OML/cmm/m/it/7 b$\
+T1/cmr/m/n/7 ) $\OMS/cmsy/m/n/7 ^[]$ \T1/cmr/m/n/7 (($\OMS/cmsy/m/n/7 8$ $\OML/
+cmm/m/it/7 t[]$\T1/cmr/m/n/7 :Tabla)($\OML/cmm/m/it/7 t[]$ $\OMS/cmsy/m/n/7 2$ 
+\T1/cmr/m/n/7 QueTriggerea?($\OML/cmm/m/it/7 t$\T1/cmr/m/n/7 ,$\OML/cmm/m/it/7 
+b$\T1/cmr/m/n/7 ))) $\OMS/cmsy/m/n/7 )[]$ []\T1/cmr/m/n/7 ($\OMS/cmsy/m/n/7 8$ 
+$\OML/cmm/m/it/7 c$\T1/cmr/m/n/7 :Campo)[]$\OML/cmm/m/it/7 c \OMS/cmsy/m/n/7 2$
+\T1/cmr/m/n/7 claves($\OML/cmm/m/it/7 t[]$\T1/cmr/m/n/7 ) $\OMS/cmsy/m/n/7 )[]$
+ []\T1/cmr/m/n/7 ($\OMS/cmsy/m/n/7 8$
  []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 92.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 99.
+(babel)             in language  on input line 92.
 [1
 
-{C:/Users/Nicolas/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (66.95766pt too wide) in paragraph at lines 121--121
-[]\T1/cmr/m/n/10 Tablas($\OML/cmm/m/it/10 b$\T1/cmr/m/n/10 ) - Ag($\OML/cmm/m/i
-t/10 t$\T1/cmr/m/n/10 ,QueTriggerea?($\OML/cmm/m/it/10 t$\T1/cmr/m/n/10 ,$\OML/
-cmm/m/it/10 b$\T1/cmr/m/n/10 )))$\OMS/cmsy/m/n/10 [$ \T1/cmr/m/n/10 Ag(añadirRe
-g($\OML/cmm/m/it/10 t$\T1/cmr/m/n/10 ,$\OML/cmm/m/it/10 r$\T1/cmr/m/n/10 ),Trig
-gereados($\OML/cmm/m/it/10 r$\T1/cmr/m/n/10 ,$\OML/cmm/m/it/10 t$\T1/cmr/m/n/10
- ,QueTriggerea?($\OML/cmm/m/it/10 t$\T1/cmr/m/n/10 ,$\OML/cmm/m/it/10 b$\T1/cmr
-/m/n/10 ))) 
- []
-
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 174.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 174.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 174.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 174.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 174.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 174.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 174.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 174.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 174.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 174.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 174.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 174.
-[2]
-
-Package lastpage Warning: Rerun to get the references right on input line 208.
-
+{C:/Users/Kufa/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 
 AED: lastpage setting LastPage
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 208.
-[3]
+(babel)             in language  on input line 166.
+[2]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 208.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 208.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 208.
- ("Base de datos.aux"
+(babel)             in language  on input line 166.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 166.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 166.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 166.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 166.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 166.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 166.
+ [3]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 166.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 166.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 166.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 166.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 166.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 166.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
+ ("Base de Datos.aux"
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 208.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 208.
-
-
-Package rerunfilecheck Warning: File `"Base de datos".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Base de datos".out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  BD5C517FE9B1AE19BA73FDD8CD3DD015;53.
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 208.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
+Package rerunfilecheck Info: File `"Base de Datos".out' has not changed.
+(rerunfilecheck)             Checksum: BD5C517FE9B1AE19BA73FDD8CD3DD015;53.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
  ) 
 Here is how much of TeX's memory you used:
- 7898 strings out of 493634
- 114246 string characters out of 3134424
- 228144 words of memory out of 3000000
- 11157 multiletter control sequences out of 15000+200000
+ 7895 strings out of 493698
+ 111032 string characters out of 3144416
+ 229813 words of memory out of 3000000
+ 11095 multiletter control sequences out of 15000+200000
  11636 words of font info for 33 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 34i,16n,43p,796b,445s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Nicolas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi60
-0\ecrm1000.pk> <C:\Users\Nicolas\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknap
-pen\ec\dpi600\eccc1000.pk> <C:\Users\Nicolas\AppData\Local\MiKTeX\2.9\fonts\pk\
-ljfour\jknappen\ec\dpi600\ecbx1000.pk> <C:\Users\Nicolas\AppData\Local\MiKTeX\2
-.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecxc1440.pk> <C:\Users\Nicolas\AppData\Lo
-cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk><F:/Users/Nicolas
-/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><F
-:/Users/Nicolas/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmmi10.pfb><F:/Users/Nicolas/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb><F:/Users/Nicolas/AppData/Local/Programs/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmr5.pfb><F:/Users/Nicolas/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><F:/Users/Nicolas/AppData/
-Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><F:/Users/N
-icolas/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/ms
-am10.pfb>
-Output written on "Base de datos.pdf" (3 pages, 108061 bytes).
+ 34i,16n,43p,697b,447s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MikTex 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}<C:/Pro
+gram Files/MikTex 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fil
+es/MikTex 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MikTe
+x 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MikTex 2.9/fon
+ts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MikTex 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb><C:/Program Files/MikTex 2.9/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb><C:/Program Files/MikTex 2.9/fonts/type1/public/amsfonts/sym
+bols/msam10.pfb><C:/Program Files/MikTex 2.9/fonts/type1/public/cm-super/sfbx10
+00.pfb><C:/Program Files/MikTex 2.9/fonts/type1/public/cm-super/sfbx1440.pfb><C
+:/Program Files/MikTex 2.9/fonts/type1/public/cm-super/sfcc1000.pfb><C:/Program
+ Files/MikTex 2.9/fonts/type1/public/cm-super/sfrm1000.pfb><C:/Program Files/Mi
+kTex 2.9/fonts/type1/public/cm-super/sfxc1440.pfb>
+Output written on "Base de Datos.pdf" (3 pages, 138074 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
+ 73 PDF objects out of 1000 (max. 8388607)
  5 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 9 words of extra memory for PDF output out of 10000 (max. 10000000)
 
