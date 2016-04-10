@@ -1,17 +1,4 @@
-\documentclass[10pt, a4paper]{article}
-\usepackage[paper=a4paper, left=1.5cm, right=1.5cm, bottom=1.5cm, top=3.5cm]{geometry}
-\usepackage[latin1]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[spanish]{babel}
-\usepackage{indentfirst}
-\usepackage{fancyhdr}
-\usepackage{latexsym}
-\usepackage{lastpage}
-\usepackage{aed2-symb,aed2-itef,aed2-tad}
-\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
-\usepackage{calc}
 
-\begin{document}
 
 \section{TAD \tadNombre{Registro}}
 
@@ -99,7 +86,7 @@
 \tadAxioma{CombinarDeAcuerdoA($r_1,r_2,cs$)}{\IF $\emptyset ?$(cs) THEN $r_1$ ELSE {\IF DameUno(cs)$\in$campos($r_1$) THEN CombinarDeAcuerdoA($r_1,r_2$, SinUno(cs)) ELSE {\IF Nat?(tipo(DameUno(cs))) THEN agValor\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)),DameUno(cs), valorEn($r_2$,DameUno(cs))\big) ELSE agPalabra\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)), DameUno(cs),palabraEn($r_2$,DameUno(cs))\big) FI} FI} FI}
 \bigskip
 
-\tadAxioma{noRepiten($r_1,r_2$, $c$)}{(Nat?(Tipo(c))$\yluego$$\neg$\big(valorEn($r_1$, c)=valorEn($r_2$, c))$\vee$\\($\neg$Nat?(tipo(c))$\yluego\neg$(palabraEn($r_1$, c)=palabraEn($r_2$, c)))}
+\tadAxioma{noRepiten($r_1,r_2$, $c$)}{(Nat?(Tipo(c))$\yluego$ $\neg$\big(valorEn($r_1$, c)=valorEn($r_2$, c))$\vee$\\($\neg$Nat?(tipo(c))$\yluego\neg$(palabraEn($r_1$, c)=palabraEn($r_2$, c)))}
 \bigskip
 \tadAxioma{DameCoincidentesVal($c,n,rs$)}{\IF $\emptyset ?(rs)$ THEN $\emptyset$ ELSE {\IF ValorEn(DameUno($rs$),$c$)=n THEN Ag\big(DameUno($rs$),DameCoincidentesVal($c$,$n$,SinUno($rs$))\big) ELSE DameCoincidentesVal($c$,$n$,SinUno($rs$)) FI} FI}
 \bigskip
@@ -112,8 +99,3 @@
 
 \end{tad}
 
-
-
-
-
-\end{document}

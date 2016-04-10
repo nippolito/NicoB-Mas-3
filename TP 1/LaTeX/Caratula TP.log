@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.2)  9 APR 2016 17:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.9)  10 APR 2016 14:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **"Caratula TP.tex"
 (./Caratula TP.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 7 languages loaded.
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -81,7 +81,7 @@ Package babel Info: Making . an active character on input line 599.
 Package babel Info: Making < an active character on input line 644.
 Package babel Info: Making > an active character on input line 644.
 ))
-(/home/toni-acer-ubuntu/texmf/tex/latex/aed2-symb/aed2-symb.sty
+(/home/n/texmf/tex/latex/aed2-symb/aed2-symb.sty
 Package: aed2-symb 2004/04/17 - Para componer simbolitos frecuentemente usados 
 en AED2
 
@@ -173,7 +173,7 @@ File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
 \xargs@toksa=\toks26
 \xargs@toksb=\toks27
 ))
-(/home/toni-acer-ubuntu/texmf/tex/latex/aed2-itef/aed2-itef.sty
+(/home/n/texmf/tex/latex/aed2-itef/aed2-itef.sty
 Package: aed2-itef 2010/03/16 - if-then-else-fi en lenguaje de TADs.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
@@ -183,7 +183,7 @@ Cargando package 'itef' (2010/03/16)
 \itefIndentacion=\skip46
 \itef@widthUnaLinea=\skip47
 \itef@linewidth=\skip48
-) (/home/toni-acer-ubuntu/texmf/tex/latex/aed2-tad/aed2-tad.sty
+) (/home/n/texmf/tex/latex/aed2-tad/aed2-tad.sty
 Package: aed2-tad 2011/04/04 - Para especificar TADs en formato AED2
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
@@ -199,7 +199,7 @@ LaTeX Info: Redefining \addtolength on input line 77.
 \calc@Ccount=\count109
 \calc@Cskip=\skip51
 )
-(/home/toni-acer-ubuntu/texmf/tex/latex/aed2-tokenizer/aed2-tokenizer.sty
+(/home/n/texmf/tex/latex/aed2-tokenizer/aed2-tokenizer.sty
 Package: aed2-tokenizer 2010/03/12
 )
 Package aed2-tad Info: Cargando package 'tad' (04/04/2011) on input line 26.
@@ -223,13 +223,15 @@ Package aed2-tad Info: Cargando package 'tad' (04/04/2011) on input line 26.
 \tadAxioma@lenEquiv=\skip68
 \tadAxioma@lenDerecha=\skip69
 )
-(/home/toni-acer-ubuntu/texmf/tex/latex/caratula/caratula.sty
+(/home/n/texmf/tex/latex/caratula/caratula.sty
 Package: caratula 2003/4/13 v0.1 Para componer caratulas de TPs del DC
 
 Cargando package 'caratula' v0.2 (21/4/2003)
 \intlist=\toks28
+) (./Caratula TP.aux
+LaTeX Info: Redefining \. on input line 6.
+LaTeX Info: Redefining \% on input line 6.
 )
-No file "Caratula TP".aux.
 \openout1 = `"Caratula TP.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -244,6 +246,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -295,19 +298,19 @@ LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 2999 strings out of 494925
- 38748 string characters out of 6178545
- 107941 words of memory out of 5000000
- 6190 multiletter control sequences out of 15000+600000
+ 3001 strings out of 493304
+ 38555 string characters out of 6139872
+ 111960 words of memory out of 5000000
+ 6424 multiletter control sequences out of 15000+600000
  7660 words of font info for 31 fonts, out of 8000000 for 9000
- 62 hyphenation exceptions out of 8191
- 34i,11n,35p,234b,222s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 957 hyphenation exceptions out of 8191
+ 34i,11n,35p,234b,224s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on "Caratula TP.pdf" (1 page, 66016 bytes).
+Output written on "Caratula TP.pdf" (1 page, 65995 bytes).
 PDF statistics:
  28 PDF objects out of 1000 (max. 8388607)
  19 compressed objects within 1 object stream
