@@ -3,7 +3,7 @@
 \section{TAD \tadNombre{Registro}}
 
 \begin{tad}{\tadNombre{Registro}}
-\tadIgualdadObservacionalSimple{($\forall$ $r_1$,$r_2$:reg) ($r_1$ $\igobs$ $r_2$) $\Leftrightarrow$ \Bigg( campos($r_1$) $\igobs$ campos($r_2$) $\yluego$ \bigg(($\forall$ c:Campos) \\ \Big((c $\in$ campos($r_1$))) $\impluego$ \big((Nat?(tipo(c)) $\impluego$ (ValorEn($r_1$, c) $\igobs$ ValorEn($r_2$, c))) $\wedge$ \\($\neg$Nat?(tipo(c)) $\impluego$ (PalabraEn($r_1$, c) $\igobs$ PalabraEn($r_2$, c))\big)\Big)\bigg)\Bigg)}
+\tadIgualdadObservacionalSimple{($\forall$ $r_1$,$r_2$:reg) ($r_1$ $\igobs$ $r_2$) $\Leftrightarrow$ \Bigg( campos($r_1$) $\igobs$ campos($r_2$) $\yluego$ \bigg(($\forall$ c:Campos) \\ \Big((c $\in$ campos($r_1$)) $\impluego$ \big((Nat?(tipo(c)) $\impluego$ (ValorEn($r_1$, c) $\igobs$ ValorEn($r_2$, c))) $\wedge$ \\($\neg$Nat?(tipo(c)) $\impluego$ (PalabraEn($r_1$, c) $\igobs$ PalabraEn($r_2$, c))\big)\Big)\bigg)\Bigg)}
 
 \tadGeneros{reg}
 \tadExporta{reg, generadores, observadores, otras operaciones}
@@ -94,7 +94,7 @@
 \bigskip
 \tadAxioma{AgYCompDefault(r,cs)}{\IF $\emptyset$?(cs) THEN NuevoRegistro ELSE {\IF DameUno(cs) $\in$ campos(r) THEN {\IF Nat?(tipo(DameUno(cs))) THEN AgValor\Big(AgYCompDefault\big(r,SinUno(cs)\big),DameUno(cs),\\ValorEn(r,DameUno(cs))\Big) ELSE AgPalabra\Big(AgYCompDefault\big(r,SinUno(cs)\big),DameUno(cs),\\PalabraEn(r,DameUno(cs))\Big) FI} ELSE AgregoPorDefault\big(AgYCompDefault(r,SinUno(cs)),DameUno(cs)\big)FI} FI}
 \bigskip
-\tadAxioma{AgregoPorDefault(r,c)}{\IF Nat?(tipo(c) THEN AgValor(r, c, 0) ELSE AgPalabra(r, c, "Default") FI}
+\tadAxioma{AgregoPorDefault(r,c)}{\IF Nat?(tipo(c)) THEN AgValor(r, c, 0) ELSE AgPalabra(r, c, "Default") FI}
 %>>>>>>> e7068dd383137020fcabb31db399102d362ab264
 
 \end{tad}

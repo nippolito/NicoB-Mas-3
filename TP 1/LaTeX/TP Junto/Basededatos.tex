@@ -7,7 +7,7 @@
 
 \tadGeneros{bdd}
 \tadExporta{bdd, generadores, observadores, otras operaciones}
-\tadUsa{\tadNombre{Nat}, \tadNombre{String}, \tadNombre{Campo}, \tadNombre{Tipo}, \tadNombre{Registro}, \tadNombre{Tabla}}
+\tadUsa{\tadNombre{Nat}, \tadNombre{String}, \tadNombre{Campo}, \tadNombre{Tipo}, \tadNombre{Registro}, \tadNombre{Tabla}, tadNombre{Conjunto($\alpha$)}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadObservadores
 \tadOperacion{Tablas}{bdd}{conj(tabla)}{}
@@ -74,9 +74,9 @@
 
 \tadAxioma{Tablas(ElimTrigger($t_1, t_2, b$))}{Tablas($b$)}
 
-\tadAxioma{Tablas(AgregarReg($r, t, b$))}{\Big(Tablas($b$)-Ag($t$,QueTriggerea?($t, b$))\Big) $\cup$ \\Ag\Big(A\~nadirReg($t,r$),Triggereados($r, t$,QueTriggerea?($t, b$))\Big)}
+\tadAxioma{Tablas(AgregarReg($r, t, b$))}{(Tablas($b$)-Ag($t$,QueTriggerea?($t, b$))) $\cup$ \\Ag(A\~nadirReg($t,r$),Triggereados($r, t$,QueTriggerea?($t, b$)))}
 
-\tadAxioma{Tablas(ElimRegStr($c, s, t, b$))}{Ag(borrarPalabra($t, c, s$), Tablas($b$)-Ag($t,\emptyset$)}
+\tadAxioma{Tablas(ElimRegStr($c, s, t, b$))}{Ag(borrarPalabra($t, c, s$), Tablas($b$)-Ag($t,\emptyset$))}
 
 \tadAxioma{Tablas(ElimRegNat($c, n, t, b$))}{Ag(borrarValor($t, c, n$), Tablas($b$)-Ag($t,\emptyset$))}
 \bigskip
@@ -87,7 +87,7 @@
 
 \tadAxioma{CamposDeJoin($t_1$,$t_2$,DefTrigger($t_3$,$t_4$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
 
-\tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimJoin($t_3$, $t_4$, c, b))}{\IF (($t_1$ = $t_3$ $\vee$ $t_1$ = $t_4$) $\wedge$ ($t_2$ = $t_3$ $\vee$ $t_2$ = $t_4$)) THEN c - CamposDeJoin($t_1$, $t_2$, b) ELSE CamposDeJoin($t_1$, $t_2$, b) FI}
+\tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimJoin($t_3$, $t_4$, c, b))}{\IF (($t_1$ = $t_3$ $\vee$ $t_1$ = $t_4$) $\wedge$ ($t_2$ = $t_3$ $\vee$ $t_2$ = $t_4$)) THEN CamposDeJoin($t_1$, $t_2$, b) - Ag(c,$\emptyset$) ELSE CamposDeJoin($t_1$, $t_2$, b) FI}
 
 \tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimTrigger($t_3$, $t_4$, b))}{CamposDeJoin($t_1$, $t_2$, b)}
 
@@ -125,7 +125,7 @@
 
 \tadAxioma{\#Modificaciones($t_1$, DefTrigger($t_2$, $t_3$, $b$))}{\#Modificaciones($t_1$, $b$)}
 
-\tadAxioma{\#Modificaciones($t_1$, AgregarReg($r$, $t_2$, $b$))}{\#Modificaciones($t_1, b$) + $\beta$($t_1\in$QueTriggerea?($t_2,b$) $\vee$ $t_1 = t_2$)}
+\tadAxioma{\#Modificaciones($t_1$, AgregarReg($r$, $t_2$, $b$))}{\#Modificaciones($t_1, b$) + $\beta$($t_1\in$ QueTriggerea?($t_2,b$) $\vee$ $t_1 = t_2$)}
 
 \tadAxioma{\#Modificaciones($t_1$, ElimRegStr($c$, $s$, $t_2$, $b$))}{\#Modificaciones($t_1$, $b$) + $\beta$($t_1$=$t_2$)*\#AparicionesPal($t_1$, $c$, $s$)}
 

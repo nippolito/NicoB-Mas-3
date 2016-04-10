@@ -28,7 +28,7 @@
 \tadOperacion{$\bullet$ = $\bullet$}{Tipo, Tipo}{bool}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tadAxiomas[\paratodo{Tipo}{t1,t_2}]
+\tadAxiomas[\paratodo{Tipo}{t_1,t_2}]
 %\tadAlinearAxiomas{bool,nat}
 
 % OB título
@@ -36,7 +36,7 @@
 
 \tadAxioma{Nat?(String)}{False}
 
-\tadAxioma{$t_1 = t_2$}{\IF Nat?($t_1$) THEN Nat?($t_1$) ELSE $\neg$Nat?($t_2$) FI}
+\tadAxioma{$t_1 = t_2$}{\IF Nat?($t_1$) THEN Nat?($t_2$) ELSE $\neg$Nat?($t_2$) FI}
 
 \end{tad}
 
