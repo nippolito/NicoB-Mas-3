@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.22)  26 APR 2016 12:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.22)  26 APR 2016 15:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -110,7 +110,7 @@ LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2013/01/28 v1.2l Refers to last page's name (HMM; JPG)
 )
-(/home/Nippolito/texmf/tex/latex/aed2-symb/aed2-symb.sty
+(/home/ifernandez/texmf/tex/latex/aed2-symb/aed2-symb.sty
 Package: aed2-symb 2004/04/17 - Para componer simbolitos frecuentemente usados 
 en AED2
 
@@ -204,7 +204,7 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 \xargs@toksa=\toks26
 \xargs@toksb=\toks27
 ))
-(/home/Nippolito/texmf/tex/latex/aed2-itef/aed2-itef.sty
+(/home/ifernandez/texmf/tex/latex/aed2-itef/aed2-itef.sty
 Package: aed2-itef 2010/03/16 - if-then-else-fi en lenguaje de TADs.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty
@@ -214,7 +214,7 @@ Cargando package 'itef' (2010/03/16)
 \itefIndentacion=\skip55
 \itef@widthUnaLinea=\skip56
 \itef@linewidth=\skip57
-) (/home/Nippolito/texmf/tex/latex/aed2-tad/aed2-tad.sty
+) (/home/ifernandez/texmf/tex/latex/aed2-tad/aed2-tad.sty
 Package: aed2-tad 2011/04/04 - Para especificar TADs en formato AED2
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/calc.sty
@@ -230,7 +230,7 @@ LaTeX Info: Redefining \addtolength on input line 76.
 \calc@Ccount=\count108
 \calc@Cskip=\skip60
 )
-(/home/Nippolito/texmf/tex/latex/aed2-tokenizer/aed2-tokenizer.sty
+(/home/ifernandez/texmf/tex/latex/aed2-tokenizer/aed2-tokenizer.sty
 Package: aed2-tokenizer 2010/03/12
 )
 Package aed2-tad Info: Cargando package 'tad' (04/04/2011) on input line 26.
@@ -514,7 +514,7 @@ r[]$\T1/cmr/m/n/5 )[]
  []
 
 
-Overfull \hbox (19.01529pt too wide) in paragraph at lines 86--86
+Overfull \hbox (19.01529pt too wide) in paragraph at lines 93--93
 []$\OMS/cmsy/m/n/10 :$\T1/cmr/m/n/10 noRepiten($\OML/cmm/m/it/10 r[]$\T1/cmr/m/
 n/10 , $\OML/cmm/m/it/10 r[]$\T1/cmr/m/n/10 , DameUno($\OML/cmm/m/it/10 cs$\T1/
 cmr/m/n/10 )) $\OMS/cmsy/m/n/10 ^$ \T1/cmr/m/n/10 ConMismoContenido($\OML/cmm/m
@@ -522,158 +522,182 @@ cmr/m/n/10 )) $\OMS/cmsy/m/n/10 ^$ \T1/cmr/m/n/10 ConMismoContenido($\OML/cmm/m
  []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 90.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 90.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 90.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 90.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 90.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 90.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 90.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 90.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 90.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 90.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 90.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 90.
+(babel)             in language  on input line 95.
 [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 97--97
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
 []\T1/cmr/m/n/10 agValor[]CombinarDeAcuerdoA($\OML/cmm/m/it/10 r[]; r[]$\T1/cmr
 /m/n/10 ,SinUno(cs)),DameUno(cs),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--97
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
 []\T1/cmr/m/n/10 agPalabra[]CombinarDeAcuerdoA($\OML/cmm/m/it/10 r[]; r[]$\T1/c
 mr/m/n/10 ,SinUno(cs)),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--97
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
 []\T1/cmr/m/n/10 agValor[]CombinarDeAcuerdoA($\OML/cmm/m/it/10 r[]; r[]$\T1/cmr
 /m/n/10 ,SinUno(cs)),DameUno(cs),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--97
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
 []\T1/cmr/m/n/10 agPalabra[]CombinarDeAcuerdoA($\OML/cmm/m/it/10 r[]; r[]$\T1/c
 mr/m/n/10 ,SinUno(cs)),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--97
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
 []\T1/cmr/m/n/10 agValor[]CombinarDeAcuerdoA($\OML/cmm/m/it/10 r[]; r[]$\T1/cmr
 /m/n/10 ,SinUno(cs)),DameUno(cs),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--97
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
 []\T1/cmr/m/n/10 agPalabra[]CombinarDeAcuerdoA($\OML/cmm/m/it/10 r[]; r[]$\T1/c
 mr/m/n/10 ,SinUno(cs)),
  []
 
 
-Overfull \hbox (5.74504pt too wide) in paragraph at lines 97--97
+Overfull \hbox (5.74504pt too wide) in paragraph at lines 104--104
 []\T1/cmr/m/n/10 agValor[]CombinarDeAcuerdoA($\OML/cmm/m/it/10 r[]; r[]$\T1/cmr
 /m/n/10 ,SinUno(cs)),DameUno(cs),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--97
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
 []\T1/cmr/m/n/10 agPalabra[]CombinarDeAcuerdoA($\OML/cmm/m/it/10 r[]; r[]$\T1/c
 mr/m/n/10 ,SinUno(cs)),
  []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 111.
-[2] 
+(babel)             in language  on input line 118.
+[2]
+Overfull \hbox (2.54272pt too wide) in paragraph at lines 121--121
+[]\T1/cmr/m/n/10 AgPalabra(RearmarCoinci(r,SinUno(ci)),DameUno(ci),palabraEn(r,
+DameUno(ci))) 
+ []
+
+
+Overfull \hbox (16.76909pt too wide) in paragraph at lines 121--121
+[]\T1/cmr/m/n/10 AgPalabra(RearmarCoinci(r,SinUno(ci)),DameUno(ci),palabraEn(r,
+DameUno(ci))) 
+ []
+
+
+Overfull \hbox (10.79832pt too wide) in paragraph at lines 123--123
+[]\T1/cmr/m/n/10 DameCoincidentesVal(DameUno(cs),valorEn(r,DameUno(cs)),Busca(S
+inUno(cs),r,rs)) 
+ []
+
+
+Overfull \hbox (10.65947pt too wide) in paragraph at lines 123--123
+[]\T1/cmr/m/n/10 DameCoincidentesPal(DameUno(cs),valorEn(r,DameUno(cs)),Busca(S
+inUno(cs),r,rs)) 
+ []
+
+
 AED: lastpage setting LastPage
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 [3]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 132.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 120.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 120.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 120.
+(babel)             in language  on input line 132.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 132.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
  (./Registros.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 120.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 120.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 132.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `Registros.out' has not changed.
 (rerunfilecheck)             Checksum: 30092899116376634F1E3A0BF74351AB;47.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 120.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 132.
  ) 
 Here is how much of TeX's memory you used:
  7887 strings out of 493109
- 111502 string characters out of 6135009
- 229322 words of memory out of 5000000
+ 111514 string characters out of 6135009
+ 230322 words of memory out of 5000000
  11230 multiletter control sequences out of 15000+600000
  11636 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -690,7 +714,7 @@ exlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive
 /2014/texmf-dist/fonts/type1/public/cm-super/sfxc1440.pfb>
-Output written on Registros.pdf (3 pages, 116788 bytes).
+Output written on Registros.pdf (3 pages, 117557 bytes).
 PDF statistics:
  71 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream

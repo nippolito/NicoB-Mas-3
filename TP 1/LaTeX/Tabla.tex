@@ -74,6 +74,9 @@
 
 \tadOperacion{Triggeareados}{reg $\quad$ r, tabla $\quad$ t, conj(tabla) $\quad$ ts}{conj(tabla)}{}
 
+\tadOperacion{Busqueda}{reg $\quad$ r, conj(campo) $\quad$ ci,  tabla $\quad$ t}{conj(registros)}{ci $\in$ campos(t)}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadAxiomas[\paratodo{tabla}{t,t_1,t_2}, \paratodo{conj(tabla)}{ts}, \paratodo{conj(reg)}{rs}, \paratodo{reg}{r_1,r_2}, \paratodo{campo}{c}, \paratodo{conj(campo)}{cs}, \paratodo{nat}{n}, \paratodo{string}{s}]
 %\tadAlinearAxiomas{bool,nat}
@@ -148,6 +151,12 @@
 \tadAxioma{VaciarTabla($t,cs$)}{\IF $\emptyset ?(cs)$ THEN nuevaTabla(DameUno(Claves(t)),nombre(t)) ELSE {\IF DameUno($cs$)$\in$Claves($t$) THEN DefClave\Big(AgregarCampo\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big), DameUno($cs$)\Big) ELSE AgregarCampo\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big) FI} FI}
 
 \tadAxioma{UnirTablas($t_1,t_2,c,rs$)}{\IF $\emptyset ?(rs)$ THEN SetearTabla(campos($t_1$)$\cup$campos($t_2$), c, nombre($t_1$)\&nombre($t_2$)) ELSE {\IF Coincide?(registros($t_1$),DameUno($rs$),c) THEN A\~nadirReg\Big(UnirTablas\big($t_1,t_2,c$,SinUno($cs$)\big),\\Combinar\big(DameCoincidente(registros($t_1$),DameUno($rs$),c), DameUno($rs$)\big)\Big) ELSE UnirTablas\big($t_1,t_2,c$,SinUno($cs$)\big) FI} FI}
+
+\tadAxioma{Busqueda($r$,$ci$,$t$)}{DameCamposCoinc\big(Busca(campos(r),r,registros(t)),ci\big)}
+
+
+
+
 
 \end{tad}
 

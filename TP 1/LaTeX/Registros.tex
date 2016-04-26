@@ -60,6 +60,13 @@
 
 \tadOperacion{AgYCompDefault}{reg $\quad$ $r_1$, reg $\quad$ $def$, conj(campo) $\quad$ $cs$}{reg}{}
 
+\tadOperacion{DameCamposCoinc}{reg $\quad$ r, conj(campo) $\quad$ ci}{conj(reg)}{($\forall$ r : reg) r $\in$ $\impluego$ ci $\in$ campos(r)}
+
+\tadOperacion{RearmarCoinci}{reg $\quad$ r, conj(campo) $\quad$ ci}{reg}{ci $\in$ campos(r)}
+
+\tadOperacion{Busca}{conj(campo) $\quad$ cs , reg $\quad$ r, conj(reg) $\quad$ rs, conj(campo) $\quad$ ci}{conj(reg)}{ cs $\subseteq$ campos(r) $\wedge$ $\neg$ ($\emptyset$?(cs)) $\wedge$ ci $\subseteq$ cs }
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %<<<<<<< HEAD
 \tadAxiomas[\paratodo{reg}{r_1,r_2}, \paratodo{campo}{c_1, c_2}, \paratodo{conj(campo)}{cs}, \paratodo{nat}{n}, \paratodo{string}{s}]
@@ -109,6 +116,11 @@
 \tadAxioma{AgYCompDefault(r, def, cs)}{\IF $\emptyset$?(cs) THEN NuevoRegistro ELSE {\IF DameUno(cs) $\in$ campos(r) THEN {\IF Nat = tipo(DameUno(cs)) THEN AgValor\Big(AgYCompDefault\big(r, def, SinUno(cs)\big),DameUno(cs),\\ValorEn(r,DameUno(cs))\Big) ELSE AgPalabra\Big(AgYCompDefault\big(r, def, SinUno(cs)\big),DameUno(cs),\\PalabraEn(r,DameUno(cs))\Big) FI} ELSE {\IF Nat = tipo(DameUno(cs)) THEN AgValor\Big(AgYCompDefault\big(r, def, SinUno(cs)\big), DameUno(cs),\\ValorEn(def, DameUno(cs))\Big) ELSE AgPalabra\Big(AgYCompDefault\big(r, def, SinUno(cs)\big), DameUno(cs),\\PalabraEn(def, DameUno(cs))\Big) FI} FI} FI}
 \bigskip
 
+\tadAxioma{DameCamposCoinci(r,ci)}{\IF $\emptyset$?(ci) THEN $\emptyset$ ELSE Ag(RearmarCoinci(DameUno(cs),ci),DameCamposCoinci(SinUno(rs),ci) FI}
+
+\tadAxioma{RearmarCoinci(r,ci)}{\IF $\emptyset$?(ci) THEN NuevoRegistro ELSE {\IF tipo(DameUno(ci))= Nat THEN AgValor(RearmarCoinci(r,SinUno(ci)),DameUno(ci),valorEn(r,DameUno(ci))) ELSE AgPalabra(RearmarCoinci(r,SinUno(ci)),DameUno(ci),palabraEn(r,DameUno(ci))) FI} FI }
+
+\tadAxioma{Busca(cs,r,rs,ci)}{\IF $\emptyset$?(SinUno(cs)) THEN {\IF tipo(DameUno(cs)) = Nat THEN DameCoincidentesVal(DameUno(cs),valorEn(r,DameUno(cs)),rs) ELSE DameCoincidentesPal(DameUno(cs),valorEn(r,DameUno(cs)),rs) FI} ELSE {\IF tipo(DameUno(cs)) = Nat THEN DameCoincidentesVal(DameUno(cs),valorEn(r,DameUno(cs)),Busca(SinUno(cs),r,rs)) ELSE DameCoincidentesPal(DameUno(cs),valorEn(r,DameUno(cs)),Busca(SinUno(cs),r,rs)) FI} FI}
 
 
 \end{tad}
