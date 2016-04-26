@@ -52,13 +52,13 @@
 %\tadAlinearFunciones{bool, Tipo}
 \tadOperacion{$\bullet$ = $\bullet$}{tabla, tabla}{bool}{}
 
-\tadOperacion{\#AparicionesVal}{tabla $\quad$ $t$, campo $\quad$ $c$, nat $\quad$ n }{nat}{Nat?(tipo($c$))}
+\tadOperacion{\#AparicionesVal}{tabla $\quad$ $t$, campo $\quad$ $c$, nat $\quad$ n }{nat}{tipo($c$)=Nat $\wedge$ $c\in$CamposT($t$)}
 
-\tadOperacion{\#AparicionesPal}{tabla $\quad$ $t$, campo $\quad$ $c$, string $\quad$ s }{nat}{$\neg$Nat?(tipo($c$))}
+\tadOperacion{\#AparicionesPal}{tabla $\quad$ $t$, campo $\quad$ $c$, string $\quad$ s }{nat}{tipo($c$)=String $\wedge$ $c\in$CamposT($t$)}
 
-\tadOperacion{borrarValor}{tabla $\quad$ $t$, campo $\quad$ $c$, nat $\quad$ n }{tabla}{Nat?(tipo($c$))}
+\tadOperacion{borrarValor}{tabla $\quad$ $t$, campo $\quad$ $c$, nat $\quad$ n }{tabla}{tipo($c$)=Nat}
 
-\tadOperacion{borrarPalabra}{tabla $\quad$ $t$, campo $\quad$ $c$, string $\quad$ s }{tabla}{$\neg$Nat?(tipo($c$))}
+\tadOperacion{borrarPalabra}{tabla $\quad$ $t$, campo $\quad$ $c$, string $\quad$ s }{tabla}{tipo($c$)=String}
 
 \tadOperacion{SetearTabla}{conj(campo) $\quad$ $cs$, campo $\quad$ $c$, string $\quad$ s }{tabla}{}
 
@@ -68,9 +68,9 @@
 
 \tadOperacion{VaciarTabla}{tabla $\quad$ $t$, conj(campo) $\quad$ $c$}{tabla}{}
 
-\tadOperacion{armameUnaSinVal}{tabla $\quad$ t, campo $\quad$ c, nat $\quad$ n, conj(registro) $\quad$ rs}{tabla}{Nat?(tipo(c))}
+\tadOperacion{armameUnaSinVal}{tabla $\quad$ t, campo $\quad$ c, nat $\quad$ n, conj(registro) $\quad$ rs}{tabla}{tipo($c$)=Nat}
 
-\tadOperacion{armameUnaSinPal}{tabla $\quad$ t, campo $\quad$ c, string $\quad$ s, conj(registro) $\quad$ rs}{tabla}{$\neg$Nat?(tipo(c))}
+\tadOperacion{armameUnaSinPal}{tabla $\quad$ t, campo $\quad$ c, string $\quad$ s, conj(registro) $\quad$ rs}{tabla}{tipo($c$)=String}
 
 \tadOperacion{Triggeareados}{reg $\quad$ r, tabla $\quad$ t, conj(tabla) $\quad$ ts}{conj(tabla)}{}
 
@@ -81,7 +81,7 @@
 % OB título
 \tadAxioma{registros(nuevatalbla(c,s))}{$\emptyset$}
 
-\tadAxioma{registros(agregarCampo(t,c))}{$\emptyset$}
+\tadAxioma{registros(agregarCampo(t,c))}{registros(t)}
 
 \tadAxioma{registros(defClave(t,c))}{registros(t)}
 
@@ -130,7 +130,7 @@
 \tadAxioma{borrarPalabra(t, c, s)}{armameUnaSinPal(t, c, s, registros(t))}
 \bigskip
 
-\tadAxioma{Triggereados(r, t, ts)}{\IF $\emptyset$?(ts) THEN $\emptyset$ ELSE Ag\Big(A\~nadirReg\big(DameUno(ts),AgYCompDefault(r,camposT(DameUno(ts)))\big),\\Triggeareados(r, t, SinUno(ts))\Big) FI}
+\tadAxioma{Triggereados(r, $def$, t, ts)}{\IF $\emptyset$?(ts) THEN $\emptyset$ ELSE Ag\Big(A\~nadirReg\big(DameUno(ts),AgYCompDefault(r,$def$,camposT(DameUno(ts)))\big),\\Triggeareados(r, t, SinUno(ts))\Big) FI}
 \bigskip
 
 \tadAxioma{armameUnaSinVal(t, c, n, rs)}{\IF $\emptyset$?(rs) THEN vaciarTabla(t, campos(t)) ELSE {\IF ValorEn(DameUno(rs),c) = n THEN armameUnaSinVal(t, c, n, SinUno(rs)) ELSE A\~nadirReg(armameUnaSinVal(t, c, n, SinUno(rs)), DameUno(rs)) FI} FI}
@@ -145,7 +145,7 @@
 \tadAxioma{SetearTabla($cs,c,s$)}{\IF $\emptyset ?(cs)$ THEN nuevaTabla(c,s) ELSE agregarCampo\big(SetearTabla(SinUno($cs$),c,s),DameUno($cs$)\big) FI}
 \bigskip
 
-\tadAxioma{VaciarTabla($t,cs$)}{\IF $\emptyset ?(cs)$ THEN nuevaTabla(DameUno(Claves(t)),nombre(t)) ELSE {\IF DameUno($cs$)$\in$Claves($t$) THEN DefClave\Big(A\~nadirReg\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big), DameUno($cs$)\Big) ELSE A\~nadirReg\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big) FI} FI}
+\tadAxioma{VaciarTabla($t,cs$)}{\IF $\emptyset ?(cs)$ THEN nuevaTabla(DameUno(Claves(t)),nombre(t)) ELSE {\IF DameUno($cs$)$\in$Claves($t$) THEN DefClave\Big(AgregarCampo\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big), DameUno($cs$)\Big) ELSE AgregarCampo\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big) FI} FI}
 
 \tadAxioma{UnirTablas($t_1,t_2,c,rs$)}{\IF $\emptyset ?(rs)$ THEN SetearTabla(campos($t_1$)$\cup$campos($t_2$), c, nombre($t_1$)\&nombre($t_2$)) ELSE {\IF Coincide?(registros($t_1$),DameUno($rs$),c) THEN A\~nadirReg\Big(UnirTablas\big($t_1,t_2,c$,SinUno($cs$)\big),\\Combinar\big(DameCoincidente(registros($t_1$),DameUno($rs$),c), DameUno($rs$)\big)\Big) ELSE UnirTablas\big($t_1,t_2,c$,SinUno($cs$)\big) FI} FI}
 

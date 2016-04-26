@@ -20,8 +20,7 @@
 \tadIgualdadObservacionalSimple{(Nat $\igobs$ Nat) $\wedge$ (String $\igobs$ String) $\wedge$ $\neg$(Nat $\igobs$ String) $\wedge$ $\neg$ (String $\igobs$ Nat) }
 
 \tadGeneros{Tipo}
-\tadExporta{Tipo, generadores, otras operaciones}
-\tadUsa{\tadNombre{Bool}}
+\tadExporta{Tipo, generadores}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -33,23 +32,8 @@
 
 \tadOperacion{String}{$\bullet$}{Tipo}{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tadOtrasOperaciones
-%\tadAlinearFunciones{bool, Tipo}
-
-\tadOperacion{Nat?}{Tipo}{bool}{}
-
-\tadOperacion{$\bullet$ = $\bullet$}{Tipo, Tipo}{bool}{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tadAxiomas[\paratodo{Tipo}{t1,t_2}]
-%\tadAlinearAxiomas{bool,nat}
 
 % OB título
-\tadAxioma{Nat?(Nat)}{True}
-
-\tadAxioma{Nat?(String)}{False}
-
-\tadAxioma{$t_1 = t_2$}{\IF Nat?($t_1$) THEN Nat?($t_1$) ELSE $\neg$Nat?($t_2$) FI}
 
 \end{tad}
 

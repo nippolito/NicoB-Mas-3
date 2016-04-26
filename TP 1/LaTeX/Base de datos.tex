@@ -40,11 +40,11 @@
 
 \tadOperacion{Nuevobdd}{}{bdd}{}
 
-\tadOperacion{AgTabla}{tabla $\quad$ $t$,bdd $\quad$ $b$}{bdd}{}
+\tadOperacion{AgTabla}{tabla $\quad$ $t$,bdd $\quad$ $b$}{bdd}{$\neg$($t\in$Tablas($b$))}
 
 \tadOperacion{AgJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ $c$, bdd $\quad$ b}{bdd}{$t_1$ $\in$ tablas($b$) $\wedge$ $t_2$ $\in$ tablas($b$) $\wedge$ $c\in$(claves($t_1$) $\cup$ claves($t_2$))}
 
-\tadOperacion{DefTrigger}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, bdd $\quad$ $b$}{bdd}{$t_1$ $\in$ tablas($b$) $\wedge$ $t_2$ $\in$ tablas($b$) $\wedge$ (claves($t_2$)$\subseteq$claves($t_1$)) $\wedge$ $\neg$($t_1$=$_2$)}
+\tadOperacion{DefTrigger}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, reg $\quad$ $def$, bdd $\quad$ $b$}{bdd}{Campos($def$)=(CamposT($t_2$)-CamposT($t_1$)) $\wedge$ $t_1$ $\in$ tablas($b$) $\wedge$ $t_2$ $\in$ tablas($b$) $\wedge$ (Claves($t_2$)$\subseteq$Claves($t_1$)) $\wedge$ $\neg$($t_1$=$t_2$)}
 
 \tadOperacion{ElimJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ $c$, bdd $\quad$ b}{bdd}{($t_1\in$tablas($b$) $\wedge$ $t_2 \in$tablas($b$)) $\yluego$ $c$ $\in$ CamposDeJoin($t_1$, $t_2$, b)}
 
@@ -53,9 +53,9 @@
 \tadOperacion{AgregarReg}{reg $\quad$ $r$, tabla $\quad$ $t$, bdd $\quad$ b}{bdd}{t $\in$ tablas($b$) $\yluego$ (($\forall$ $t_1$:Tabla)($t_1$ $\in$ QueTriggerea?($t$,$b$))) $\impluego$ \bigg(($\forall$ $c$:Campo)\Big($c \in$claves($t_1$) $\impluego$ \big(($\forall$ $r_1$:reg)\big($r_1\in$registros($t_1$) $\impluego$ NoRepiten($r_1, r, c$)\big)\Big)\bigg)}
 \bigskip
 
-\tadOperacion{ElimRegStr}{campo $\quad$ $c$ ,string $\quad$ $s$,tabla $\quad$ $t_1$, bdd $\quad$ $b$}{bdd}{$\neg$(Nat?(tipo($c$) $\wedge$ $t_1$ $\in$ tablas($b$)}
+\tadOperacion{ElimRegStr}{campo $\quad$ $c$ ,string $\quad$ $s$,tabla $\quad$ $t_1$, bdd $\quad$ $b$}{bdd}{tipo($c$)=String $\wedge$ $t_1$ $\in$ tablas($b$)}
 
-\tadOperacion{ElimRegNat}{campo $\quad$ $c$ ,nat $\quad$ $n$,tabla $\quad$ $t_1$ , bdd $\quad$ $b$}{bdd}{(Nat?(tipo($c$) $\wedge$ $t_1$ $\in$ tablas($b$)}
+\tadOperacion{ElimRegNat}{campo $\quad$ $c$ ,nat $\quad$ $n$,tabla $\quad$ $t_1$ , bdd $\quad$ $b$}{bdd}{tipo($c$)=Nat $\wedge$ $t_1$ $\in$ tablas($b$)}
 \bigskip
 
 \tadOtrasOperaciones
@@ -67,7 +67,7 @@
 
 \tadOperacion{TabMasModificada}{bdd}{tabla}{$\neg\emptyset?$(tablas($b$))}
 
-\tadOperacion{MasMod}{conj(tabla) $\quad$ $ts$, bdd $\quad$ $b$}{tabla}{$ts \subseteq$tablas(b)}
+\tadOperacion{MasMod}{conj(tabla) $\quad$ $ts$, bdd $\quad$ $b$}{tabla}{$ts \subseteq$tablas($b$)}
 \bigskip
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -81,7 +81,7 @@
 
 \tadAxioma{Tablas(AgJoin($t_1$,$t_2$,$c$,$b$))}{Tablas($b$)}
 
-\tadAxioma{Tablas(DefTrigger($t_1$,$t_2$,$b$))}{Tablas($b$)}
+\tadAxioma{Tablas(DefTrigger($t_1$,$t_2$, $r$, $b$))}{Tablas($b$)}
 
 \tadAxioma{Tablas(ElimJoin($t_1$, $t_2, c, b$))}{Tablas($b$)}
 
@@ -94,11 +94,11 @@
 \tadAxioma{Tablas(ElimRegNat($c, n, t, b$))}{Ag(borrarValor($t, c, n$), Tablas($b$)-Ag($t,\emptyset$))}
 \bigskip
 
-\tadAxioma{CamposDeJoin($t_1$,$t_2$,AgTabla($t_3$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
+\tadAxioma{CamposDeJoin($t_1$,$t_2$,AgTabla($t_3$,$b$))}{\IF $t_1=t_3$ $\vee$ $t_2=t_3$ THEN $\emptyset$ ELSE CamposDeJoin($t_1$,$t_2$,$b$) FI}
 
-\tadAxioma{CamposDeJoin($t_1$,$t_2$,AgJoin($t_3$,$t_4$,$c$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
+\tadAxioma{CamposDeJoin($t_1$,$t_2$,AgJoin($t_3$,$t_4$,$c$,$b$))}{\IF ($t_1=t_3 \wedge t_2=t_4$) $\vee$ ($t_1=t_4 \wedge t_2=t_3$) THEN Ag(c,CamposDeJoin($t_1$,$t_2$,$b$)) ELSE CamposDeJoin($t_1$,$t_2$,$b$) FI}
 
-\tadAxioma{CamposDeJoin($t_1$,$t_2$,DefTrigger($t_3$,$t_4$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
+\tadAxioma{CamposDeJoin($t_1$,$t_2$,DefTrigger($t_3$,$t_4$,$r$,$b$))}{CamposDeJoin($t_1$,$t_2$,$b$)}
 
 \tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimJoin($t_3$, $t_4$, c, b))}{\IF (($t_1$ = $t_3$ $\vee$ $t_1$ = $t_4$) $\wedge$ ($t_2$ = $t_3$ $\vee$ $t_2$ = $t_4$)) THEN c - CamposDeJoin($t_1$, $t_2$, b) ELSE CamposDeJoin($t_1$, $t_2$, b) FI}
 
@@ -111,15 +111,15 @@
 \tadAxioma{CamposDeJoin($t_1$, $t_2$, ElimRegNat(c, n, $t_3$, b))}{CamposDeJoin($t_1$, $t_2$, b)}
 \bigskip
 
-\tadAxioma{QueTriggerea?($t_1$, AgTabla($t_2$,$b$))}{QueTriggerea?($t_1$,$b$)}
+\tadAxioma{QueTriggerea?($t_1$, AgTabla($t_2$,$b$))}{\IF $t_1=t_2$ THEN $\emptyset$ ELSE QueTriggerea?($t_1$,$b$) FI}
 
 \tadAxioma{QueTriggerea?($t_1$, AgJoin($t_2$,$t_3$,$c$,$b$))}{QueTriggerea?($t_1$,$b$)}
 
-\tadAxioma{QueTriggerea?($t_1$, DefTrigger($t_2$,$t_3$,$b$))}{\IF $\neg (t_1 = t_2)$ THEN Ag($t_3$, QueTriggerea?($t_1, b$)) ELSE QueTriggerea?($t_1, b$) FI}
+\tadAxioma{QueTriggerea?($t_1$, DefTrigger($t_2$,$t_3$,$r$,$b$))}{\IF $\neg (t_1 = t_2)$ THEN Ag($t_3$, QueTriggerea?($t_1, b$)) ELSE QueTriggerea?($t_1, b$) FI}
 
 \tadAxioma{QueTriggerea?($t_1$, ElimJoin($t_2$,$t_3$,$c$, $b$))}{QueTriggerea?($t_1$,$b$)}
 
-\tadAxioma{QueTriggerea?($t_1$, ElimTrigger($t_2$,$t_3$,$b$))}{\IF $\neg (t_1 = t_2)$ THEN QueTriggerea?($t_1, b$)-Ag($t_3,\emptyset$) ELSE QueTriggerea?($t_1, b$) FI}
+\tadAxioma{QueTriggerea?($t_1$, ElimTrigger($t_2$,$t_3$,$b$))}{\IF $t_1 = t_2$ THEN QueTriggerea?($t_1, b$)-Ag($t_3,\emptyset$) ELSE QueTriggerea?($t_1, b$) FI}
 
 \tadAxioma{QueTriggerea?($t_1$, AgregarReg($r$, $t_2$, $b$))}{QueTriggerea?($t_1$,$b$)}
 
@@ -128,7 +128,7 @@
 \tadAxioma{QueTriggerea?($t_1$, ElimRegNat($c$, $n$, $t_2$, $b$))}{QueTriggerea?($t_1$,$b$)}
 \bigskip
 
-\tadAxioma{\#Modificaciones($t_1$, AgTabla($t_2$, $b$))}{\#Modificaciones($t_1$, $b$)}
+\tadAxioma{\#Modificaciones($t_1$, AgTabla($t_2$, $b$))}{\IF $t_1=t_2$ THEN 0 ELSE \#Modificaciones($t_1$, $b$) FI}
 
 \tadAxioma{\#Modificaciones($t_1$, AgJoin($t_2$, $t_3$, $c$, $b$))}{\#Modificaciones($t_1$, $b$)}
 
@@ -136,7 +136,7 @@
 
 \tadAxioma{\#Modificaciones($t_1$, ElimTrigger($t_2$, $t_3$, $b$))}{\#Modificaciones($t_1$, $b$)}
 
-\tadAxioma{\#Modificaciones($t_1$, DefTrigger($t_2$, $t_3$, $b$))}{\#Modificaciones($t_1$, $b$)}
+\tadAxioma{\#Modificaciones($t_1$, DefTrigger($t_2$, $t_3$, $r$, $b$))}{\#Modificaciones($t_1$, $b$)}
 
 \tadAxioma{\#Modificaciones($t_1$, AgregarReg($r$, $t_2$, $b$))}{\#Modificaciones($t_1, b$) + $\beta$($t_1\in$QueTriggerea?($t_2,b$) $\vee$ $t_1 = t_2$)}
 
