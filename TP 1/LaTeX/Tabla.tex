@@ -42,7 +42,7 @@
 
 \tadOperacion{AgregarCampo}{tabla $\quad$ t, campo $\quad$ c}{tabla}{}
 
-\tadOperacion{DefClave}{tabla $\quad$ t, campo $\quad$ c}{tabla}{c $\in$ camposT(t) $\wedge$ ($\forall$ $r_1$, $r_2$ : registro)\big($\neg$($r_1$ $\igobs$ $r_2$) $\wedge$ $r_1$ $\in$ registros(t) $\wedge$ $r_2$ $\in$ registros(t)\big) $\impluego$ noRepiten($r_1$, $r_2$, c)\Big)}
+\tadOperacion{DefClave}{tabla $\quad$ t, campo $\quad$ c}{tabla}{c $\in$ camposT(t) $\wedge$ ($\forall$ $r_1$, $r_2$ : reg)\big($\neg$($r_1$ $\igobs$ $r_2$) $\wedge$ $r_1$ $\in$ registros(t) $\wedge$ $r_2$ $\in$ registros(t)\big) $\impluego$ noRepiten($r_1$, $r_2$, c)\Big)}
 
 \tadOperacion{A\~nadirReg}{tabla $\quad$ t, reg $\quad$ r }{tabla}{(campos(r) $\igobs$ camposT(t)) $\wedge$ ($\forall$ c : campo)\Big(c $\in$ claves(t) $\impluego$ (($\forall$ $r_1$ : reg)\big(($\neg$ ($r_1$ $\igobs$ r) $\wedge$ \\ $r_1$ $\in$ registros(t)) $\impluego$ noRepiten(r, $r_1$, c) \big) \Big)}
 
@@ -62,15 +62,15 @@
 
 \tadOperacion{SetearTabla}{conj(campo) $\quad$ $cs$, campo $\quad$ $c$, string $\quad$ s }{tabla}{}
 
-\tadOperacion{Triggereados}{registro $\quad$ $r$, tabla $\quad$ $t_1$, conj(tabla) $\quad$ $ts$}{tabla}{}
+\tadOperacion{Triggereados}{reg $\quad$ $r$, tabla $\quad$ $t_1$, conj(tabla) $\quad$ $ts$}{tabla}{}
 
 \tadOperacion{UnirTablas}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ $c$, conj(reg) $\quad$ $rs$}{tabla}{$c\in$ \big(claves($t_1$)$\cap$claves($t_2$)\big)}
 
 \tadOperacion{VaciarTabla}{tabla $\quad$ $t$, conj(campo) $\quad$ $c$}{tabla}{}
 
-\tadOperacion{armameUnaSinVal}{tabla $\quad$ t, campo $\quad$ c, nat $\quad$ n, conj(registro) $\quad$ rs}{tabla}{tipo($c$)=Nat}
+\tadOperacion{armameUnaSinVal}{tabla $\quad$ t, campo $\quad$ c, nat $\quad$ n, conj(reg) $\quad$ rs}{tabla}{tipo($c$)=Nat}
 
-\tadOperacion{armameUnaSinPal}{tabla $\quad$ t, campo $\quad$ c, string $\quad$ s, conj(registro) $\quad$ rs}{tabla}{tipo($c$)=String}
+\tadOperacion{armameUnaSinPal}{tabla $\quad$ t, campo $\quad$ c, string $\quad$ s, conj(reg) $\quad$ rs}{tabla}{tipo($c$)=String}
 
 \tadOperacion{Triggeareados}{reg $\quad$ r, tabla $\quad$ t, conj(tabla) $\quad$ ts}{conj(tabla)}{}
 
