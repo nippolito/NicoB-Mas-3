@@ -16,7 +16,7 @@
 \section{TAD \tadNombre{Registro}}
 
 \begin{tad}{\tadNombre{Registro}}
-\tadIgualdadObservacionalSimple{($\forall$ $r_1$,$r_2$:reg) ($r_1$ $\igobs$ $r_2$) $\Leftrightarrow$ \Bigg( campos($r_1$) $\igobs$ campos($r_2$) $\yluego$ \bigg(($\forall$ c:Campos) \\ \Big((c $\in$ campos($r_1$))) $\impluego$ \big((Nat?(tipo(c)) $\impluego$ (ValorEn($r_1$, c) $\igobs$ ValorEn($r_2$, c))) $\wedge$ \\($\neg$Nat?(tipo(c)) $\impluego$ (PalabraEn($r_1$, c) $\igobs$ PalabraEn($r_2$, c))\big)\Big)\bigg)\Bigg)}
+\tadIgualdadObservacionalSimple{($\forall$ $r_1$,$r_2$:reg) ($r_1$ $\igobs$ $r_2$) $\Leftrightarrow$ \Bigg( campos($r_1$) $\igobs$ campos($r_2$) $\yluego$ \bigg(($\forall$ c:Campos) \\ \Big((c $\in$ campos($r_1$))) $\impluego$ \big((Nat = tipo(c) $\impluego$ (ValorEn($r_1$, c) $\igobs$ ValorEn($r_2$, c))) $\wedge$ \\($\neg$Nat = tipo(c) $\impluego$ (PalabraEn($r_1$, c) $\igobs$ PalabraEn($r_2$, c))\big)\Big)\bigg)\Bigg)}
 
 \tadGeneros{reg}
 \tadExporta{reg, generadores, observadores, otras operaciones}
@@ -24,8 +24,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadObservadores
 \tadOperacion{Campos}{reg}{conj(Campo)}{}
-\tadOperacion{valorEn}{reg$\quad$ r,campo$\quad$ c}{Nat}{Nat?(tipo(c)) $\wedge$ c $\in$ Campos(r)}
-\tadOperacion{palabraEn}{reg$\quad$ r, campo$\quad$ c}{String}{$\neg$Nat?(tipo(c)) $\wedge$ c $\in$ Campos(r)}
+\tadOperacion{valorEn}{reg$\quad$ r,campo$\quad$ c}{Nat}{Nat = tipo(c) $\wedge$ c $\in$ Campos(r)}
+\tadOperacion{palabraEn}{reg$\quad$ r, campo$\quad$ c}{String}{String = tipo(c) $\wedge$ c $\in$ Campos(r)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -34,8 +34,8 @@
 
 \tadOperacion{NuevoRegistro}{$\bullet$}{reg}{}
 
-\tadOperacion{agValor}{reg $\quad$ r, campo $\quad$ c, nat $\quad$ n}{reg}{c $\notin$ campos(r) $\wedge$ Nat?(tipo(c))}
-\tadOperacion{agPalabra}{reg $\quad$r, campo $\quad$ c, string $\quad$ s}{reg}{c $\notin$ campos(r) $\wedge$ $\neg$Nat?(tipo(c))}
+\tadOperacion{agValor}{reg $\quad$ r, campo $\quad$ c, nat $\quad$ n}{reg}{c $\notin$ campos(r) $\wedge$ Nat = tipo(c)}
+\tadOperacion{agPalabra}{reg $\quad$r, campo $\quad$ c, string $\quad$ s}{reg}{c $\notin$ campos(r) $\wedge$ String = tipo(c)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tadOtrasOperaciones
 %\tadAlinearFunciones{bool, Tipo}
@@ -50,17 +50,15 @@
 
 \tadOperacion{ConMismoContenido}{reg $\quad$ $r_1$, reg $\quad$ $r_2$, conj(campo) $\quad$ $cs$}{bool}{$cs\subseteq$\big(campos($r_1$)$\cap$campos($r_2$)\big)} 
 
-\tadOperacion{DameCoincidente}{conj(reg) $\quad$ $rs$, reg $\quad$ $r$, campo $\quad$ c}{bool}{(Coincide?($rs, r, c$) $\wedge $($\forall$ $r_1$ : reg) ($r_1\in rs$ $\Rightarrow$c $\in$ campos($r_1$))}
+\tadOperacion{DameCoincidente}{conj(reg) $\quad$ $rs$, reg $\quad$ $r$, campo $\quad$ c}{reg}{($\forall$ $r_1$ : reg) ($r_1\in rs$ $\Rightarrow$c $\in$ campos($r_1$)) $\yluego$ (Coincide?($rs, r, c$))}
 
-\tadOperacion{DameCoincidentesVal}{campo $\quad$ $r$, nat $\quad$ $n$, conj(reg) $\quad$ $rs$}{conj(reg)}{Nat?(tipo($c$))}
+\tadOperacion{DameCoincidentesVal}{campo $\quad$ $c$, nat $\quad$ $n$, conj(reg) $\quad$ $rs$}{conj(reg)}{($\forall$ r:reg)(r $\in$ rs $\impluego$ $c$ $\in$ campos(r)) $\yluego$ Nat = tipo($c$)}
 
-\tadOperacion{DameCoincidentesPal}{campo $\quad$ $r$, string $\quad$ $s$, conj(reg) $\quad$ $rs$}{conj(reg)}{$\neg$Nat?(tipo($c$))}
+\tadOperacion{DameCoincidentesPal}{campo $\quad$ $c$, string $\quad$ $s$, conj(reg) $\quad$ $rs$}{conj(reg)}{($\forall$ r:reg)(r $\in$ rs $\impluego$ c $\in$ campos(r)) $\yluego$  String = tipo($c$)}
 
-\tadOperacion{noRepiten}{reg $\quad$ $r_1$, reg $\quad$ $r_2$, campo $\quad$ c }{bool}{	c $\in$ campos($r_1$) $\wedge$ c $\in$ campos($r_2$)}
+\tadOperacion{noRepiten}{reg $\quad$ $r_1$, reg $\quad$ $r_2$, campo $\quad$ c }{bool}{$c$ $\in$ campos($r_1$) $\wedge$ c $\in$ campos($r_2$)}
 
-\tadOperacion{AgYCompDefault}{reg $\quad$ r, conj(campo) $\quad$ $cs$}{reg}{}
-
-\tadOperacion{AgregoPorDefault}{reg $\quad$ r, campo $\quad$ c}{reg}{	$\neg$ (c $\in$ campos(r)}
+\tadOperacion{AgYCompDefault}{reg $\quad$ $r_1$, reg $\quad$ $def$, conj(campo) $\quad$ $cs$}{reg}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %<<<<<<< HEAD
@@ -96,19 +94,22 @@
 \tadAxioma{Combinar($r_1,r_2$)}{CombinarDeAcuerdoA($r_1,c_1$,campos($c_2$))}
 \bigskip
 
-\tadAxioma{CombinarDeAcuerdoA($r_1,r_2,cs$)}{\IF $\emptyset ?$(cs) THEN $r_1$ ELSE {\IF DameUno(cs)$\in$campos($r_1$) THEN CombinarDeAcuerdoA($r_1,r_2$, SinUno(cs)) ELSE {\IF Nat?(tipo(DameUno(cs))) THEN agValor\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)),DameUno(cs), valorEn($r_2$,DameUno(cs))\big) ELSE agPalabra\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)), DameUno(cs),palabraEn($r_2$,DameUno(cs))\big) FI} FI} FI}
+\tadAxioma{CombinarDeAcuerdoA($r_1,r_2,cs$)}{\IF $\emptyset ?$(cs) THEN $r_1$ ELSE {\IF DameUno(cs)$\in$campos($r_1$) THEN CombinarDeAcuerdoA($r_1,r_2$, SinUno(cs)) ELSE {\IF Nat = tipo(DameUno(cs)) THEN agValor\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)),DameUno(cs), valorEn($r_2$,DameUno(cs))\big) ELSE agPalabra\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)), DameUno(cs),palabraEn($r_2$,DameUno(cs))\big) FI} FI} FI}
 \bigskip
 
-\tadAxioma{noRepiten($r_1,r_2$, $c$)}{(Nat?(Tipo(c))$\yluego$$\neg$\big(valorEn($r_1$, c)=valorEn($r_2$, c))$\vee$\\($\neg$Nat?(tipo(c))$\yluego\neg$(palabraEn($r_1$, c)=palabraEn($r_2$, c)))}
+\tadAxioma{noRepiten($r_1,r_2$, $c$)}{Nat = tipo(c)$\yluego$ $\neg$ \big(valorEn($r_1$, c)=valorEn($r_2$, c))$\vee$\\(String = tipo(c)$\yluego\neg$(palabraEn($r_1$, c)=palabraEn($r_2$, c)))}
 \bigskip
+
 \tadAxioma{DameCoincidentesVal($c,n,rs$)}{\IF $\emptyset ?(rs)$ THEN $\emptyset$ ELSE {\IF ValorEn(DameUno($rs$),$c$)=n THEN Ag\big(DameUno($rs$),DameCoincidentesVal($c$,$n$,SinUno($rs$))\big) ELSE DameCoincidentesVal($c$,$n$,SinUno($rs$)) FI} FI}
 \bigskip
+
 \tadAxioma{DameCoincidentesPal($c,s,rs$)}{\IF $\emptyset ?(rs)$ THEN $\emptyset$ ELSE {\IF PalabraEn(DameUno($rs$),$c$)=s THEN Ag\big(DameUno($rs$),DameCoincidentesPal($c$,$s$,SinUno($rs$))\big) ELSE DameCoincidentesPal($c$,$s$,SinUno($rs$)) FI} FI}
 \bigskip
-\tadAxioma{AgYCompDefault(r,cs)}{\IF $\emptyset$?(cs) THEN NuevoRegistro ELSE {\IF DameUno(cs) $\in$ campos(r) THEN {\IF Nat?(tipo(DameUno(cs))) THEN AgValor\Big(AgYCompDefault\big(r,SinUno(cs)\big),DameUno(cs),\\ValorEn(r,DameUno(cs))\Big) ELSE AgPalabra\Big(AgYCompDefault\big(r,SinUno(cs)\big),DameUno(cs),\\PalabraEn(r,DameUno(cs))\Big) FI} ELSE AgregoPorDefault\big(AgYCompDefault(r,SinUno(cs)),DameUno(cs)\big)FI} FI}
+
+\tadAxioma{AgYCompDefault(r, def, cs)}{\IF $\emptyset$?(cs) THEN NuevoRegistro ELSE {\IF DameUno(cs) $\in$ campos(r) THEN {\IF Nat = tipo(DameUno(cs)) THEN AgValor\Big(AgYCompDefault\big(r, def, SinUno(cs)\big),DameUno(cs),\\ValorEn(r,DameUno(cs))\Big) ELSE AgPalabra\Big(AgYCompDefault\big(r, def, SinUno(cs)\big),DameUno(cs),\\PalabraEn(r,DameUno(cs))\Big) FI} ELSE {\IF Nat = tipo(DameUno(cs)) THEN AgValor\Big(AgYCompDefault\big(r, def, SinUno(cs)\big), DameUno(cs),\\ValorEn(def, DameUno(cs))\Big) ELSE AgPalabra\Big(AgYCompDefault\big(r, def, SinUno(cs)\big), DameUno(cs),\\PalabraEn(def, DameUno(cs))\Big) FI} FI} FI}
 \bigskip
-\tadAxioma{AgregoPorDefault(r,c)}{\IF Nat?(tipo(c) THEN AgValor(r, c, 0) ELSE AgPalabra(r, c, "Default") FI}
-%>>>>>>> e7068dd383137020fcabb31db399102d362ab264
+
+
 
 \end{tad}
 
