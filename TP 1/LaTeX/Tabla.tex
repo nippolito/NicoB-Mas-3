@@ -62,7 +62,7 @@
 
 \tadOperacion{SetearTabla}{conj(campo) $\quad$ $cs$, campo $\quad$ $c$, string $\quad$ s }{tabla}{}
 
-\tadOperacion{Triggereados}{reg $\quad$ $r$, tabla $\quad$ $t_1$, conj(tabla) $\quad$ $ts$}{tabla}{}
+\tadOperacion{Triggereados}{reg $\quad$ $r$, reg $\quad$ def, tabla $\quad$ $t_1$, conj(tabla) $\quad$ $ts$}{conj(tabla)}{}
 
 \tadOperacion{UnirTablas}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ $c$, conj(reg) $\quad$ $rs$}{tabla}{$c\in$ \big(claves($t_1$)$\cap$claves($t_2$)\big)}
 
@@ -72,13 +72,12 @@
 
 \tadOperacion{armameUnaSinPal}{tabla $\quad$ t, campo $\quad$ c, string $\quad$ s, conj(reg) $\quad$ rs}{tabla}{tipo($c$)=String}
 
-\tadOperacion{Triggeareados}{reg $\quad$ r, tabla $\quad$ t, conj(tabla) $\quad$ ts}{conj(tabla)}{}
 
-\tadOperacion{Busqueda}{reg $\quad$ r, conj(campo) $\quad$ ci,  tabla $\quad$ t}{conj(registros)}{ci $\in$ campos(t)}
+\tadOperacion{Busqueda}{reg $\quad$ r, conj(campo) $\quad$ ci,  tabla $\quad$ t}{conj(registros)}{ci $\subseteq$ campos(t)}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tadAxiomas[\paratodo{tabla}{t,t_1,t_2}, \paratodo{conj(tabla)}{ts}, \paratodo{conj(reg)}{rs}, \paratodo{reg}{r_1,r_2}, \paratodo{campo}{c}, \paratodo{conj(campo)}{cs}, \paratodo{nat}{n}, \paratodo{string}{s}]
+\tadAxiomas[\paratodo{tabla}{t,t_1,t_2}, \paratodo{conj(tabla)}{ts}, \paratodo{conj(reg)}{rs}, \paratodo{reg}{r_1,r_2}, \paratodo{campo}{c}, \paratodo{conj(campo)}{cs, ci}, \paratodo{nat}{n}, \paratodo{string}{s}]
 %\tadAlinearAxiomas{bool,nat}
 
 % OB título
@@ -150,7 +149,7 @@
 
 \tadAxioma{VaciarTabla($t,cs$)}{\IF $\emptyset ?(cs)$ THEN nuevaTabla(DameUno(Claves(t)),nombre(t)) ELSE {\IF DameUno($cs$)$\in$Claves($t$) THEN DefClave\Big(AgregarCampo\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big), DameUno($cs$)\Big) ELSE AgregarCampo\big(VaciarTabla($t$,SinUno($cs$)),DameUno($cs$)\big) FI} FI}
 
-\tadAxioma{UnirTablas($t_1,t_2,c,rs$)}{\IF $\emptyset ?(rs)$ THEN SetearTabla(campos($t_1$)$\cup$campos($t_2$), c, nombre($t_1$)\&nombre($t_2$)) ELSE {\IF Coincide?(registros($t_1$),DameUno($rs$),c) THEN A\~nadirReg\Big(UnirTablas\big($t_1,t_2,c$,SinUno($cs$)\big),\\Combinar\big(DameCoincidente(registros($t_1$),DameUno($rs$),c), DameUno($rs$)\big)\Big) ELSE UnirTablas\big($t_1,t_2,c$,SinUno($cs$)\big) FI} FI}
+\tadAxioma{UnirTablas($t_1,t_2,c,rs$)}{\IF $\emptyset ?(rs)$ THEN SetearTabla(campos($t_1$)$\cup$campos($t_2$), c, nombre($t_1$)\&nombre($t_2$)) ELSE {\IF Coincide?(registros($t_1$),DameUno($rs$),c) THEN A\~nadirReg\Big(UnirTablas\big($t_1,t_2,c$,SinUno($rs$)\big),\\Combinar\big(DameCoincidente(registros($t_1$),DameUno($rs$),c), DameUno($rs$)\big)\Big) ELSE UnirTablas\big($t_1,t_2,c$,SinUno($cs$)\big) FI} FI}
 
 \tadAxioma{Busqueda($r$,$ci$,$t$)}{DameCamposCoinc\big(Busca(campos(r),r,registros(t)),ci\big)}
 

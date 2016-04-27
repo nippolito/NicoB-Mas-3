@@ -60,16 +60,16 @@
 
 \tadOperacion{AgYCompDefault}{reg $\quad$ $r_1$, reg $\quad$ $def$, conj(campo) $\quad$ $cs$}{reg}{}
 
-\tadOperacion{DameCamposCoinc}{reg $\quad$ r, conj(campo) $\quad$ ci}{conj(reg)}{($\forall$ r : reg) r $\in$ $\impluego$ ci $\in$ campos(r)}
+\tadOperacion{DameCamposCoinc}{conj(reg) $\quad$ rs, conj(campo) $\quad$ ci}{conj(reg)}{($\forall$ r : reg)( r $\in$ rs) ci $\subseteq$ campos(r)}
 
-\tadOperacion{RearmarCoinci}{reg $\quad$ r, conj(campo) $\quad$ ci}{reg}{ci $\in$ campos(r)}
+\tadOperacion{RearmarCoinci}{reg $\quad$ r, conj(campo) $\quad$ ci}{reg}{ci $\subseteq$ campos(r)}
 
-\tadOperacion{Busca}{conj(campo) $\quad$ cs , reg $\quad$ r, conj(reg) $\quad$ rs, conj(campo) $\quad$ ci}{conj(reg)}{ cs $\subseteq$ campos(r) $\wedge$ $\neg$ ($\emptyset$?(cs)) $\wedge$ ci $\subseteq$ cs }
+\tadOperacion{Busca}{conj(campo) $\quad$ cs , reg $\quad$ r, conj(reg) $\quad$ rs}{conj(reg)}{ cs $\subseteq$ campos(r) $\wedge$ $\neg$ ($\emptyset$?(cs))}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %<<<<<<< HEAD
-\tadAxiomas[\paratodo{reg}{r_1,r_2}, \paratodo{campo}{c_1, c_2}, \paratodo{conj(campo)}{cs}, \paratodo{nat}{n}, \paratodo{string}{s}]
+\tadAxiomas[\paratodo{reg}{r_1,r_2}, \paratodo{campo}{c_1, c_2}, \paratodo{conj(campo)}{cs, ci}, \paratodo{nat}{n}, \paratodo{string}{s}, \paratodo{conj(reg)}{rs}]
 %>>>>>>> e7068dd383137020fcabb31db399102d362ab264
 %\tadAlinearAxiomas{bool,nat}
 
@@ -98,7 +98,7 @@
 \tadAxioma{DameCoincidente($rs, r, c$)}{\IF noRepiten(DameUno(rs), r, c) THEN DameCoincidente(SinUno(rs), r, c) ELSE DameUno(rs) FI}
 \bigskip
 
-\tadAxioma{Combinar($r_1,r_2$)}{CombinarDeAcuerdoA($r_1,c_1$,campos($c_2$))}
+\tadAxioma{Combinar($r_1,r_2$)}{CombinarDeAcuerdoA($r_1,r_2$,campos($r_1$) $\cup$ campos($r_2$))}
 \bigskip
 
 \tadAxioma{CombinarDeAcuerdoA($r_1,r_2,cs$)}{\IF $\emptyset ?$(cs) THEN $r_1$ ELSE {\IF DameUno(cs)$\in$campos($r_1$) THEN CombinarDeAcuerdoA($r_1,r_2$, SinUno(cs)) ELSE {\IF Nat = tipo(DameUno(cs)) THEN agValor\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)),DameUno(cs), valorEn($r_2$,DameUno(cs))\big) ELSE agPalabra\big(CombinarDeAcuerdoA($r_1,r_2$,SinUno(cs)), DameUno(cs),palabraEn($r_2$,DameUno(cs))\big) FI} FI} FI}
@@ -116,11 +116,11 @@
 \tadAxioma{AgYCompDefault(r, def, cs)}{\IF $\emptyset$?(cs) THEN NuevoRegistro ELSE {\IF DameUno(cs) $\in$ campos(r) THEN {\IF Nat = tipo(DameUno(cs)) THEN AgValor\Big(AgYCompDefault\big(r, def, SinUno(cs)\big),DameUno(cs),\\ValorEn(r,DameUno(cs))\Big) ELSE AgPalabra\Big(AgYCompDefault\big(r, def, SinUno(cs)\big),DameUno(cs),\\PalabraEn(r,DameUno(cs))\Big) FI} ELSE {\IF Nat = tipo(DameUno(cs)) THEN AgValor\Big(AgYCompDefault\big(r, def, SinUno(cs)\big), DameUno(cs),\\ValorEn(def, DameUno(cs))\Big) ELSE AgPalabra\Big(AgYCompDefault\big(r, def, SinUno(cs)\big), DameUno(cs),\\PalabraEn(def, DameUno(cs))\Big) FI} FI} FI}
 \bigskip
 
-\tadAxioma{DameCamposCoinci(r,ci)}{\IF $\emptyset$?(ci) THEN $\emptyset$ ELSE Ag(RearmarCoinci(DameUno(cs),ci),DameCamposCoinci(SinUno(rs),ci) FI}
+\tadAxioma{DameCamposCoinci(rs,ci)}{\IF $\emptyset$?(rs) THEN $\emptyset$ ELSE Ag(RearmarCoinci(DameUno(rs),ci),DameCamposCoinci(SinUno(rs),ci) FI}
 
 \tadAxioma{RearmarCoinci(r,ci)}{\IF $\emptyset$?(ci) THEN NuevoRegistro ELSE {\IF tipo(DameUno(ci))= Nat THEN AgValor(RearmarCoinci(r,SinUno(ci)),DameUno(ci),valorEn(r,DameUno(ci))) ELSE AgPalabra(RearmarCoinci(r,SinUno(ci)),DameUno(ci),palabraEn(r,DameUno(ci))) FI} FI }
 
-\tadAxioma{Busca(cs,r,rs,ci)}{\IF $\emptyset$?(SinUno(cs)) THEN {\IF tipo(DameUno(cs)) = Nat THEN DameCoincidentesVal(DameUno(cs),valorEn(r,DameUno(cs)),rs) ELSE DameCoincidentesPal(DameUno(cs),valorEn(r,DameUno(cs)),rs) FI} ELSE {\IF tipo(DameUno(cs)) = Nat THEN DameCoincidentesVal(DameUno(cs),valorEn(r,DameUno(cs)),Busca(SinUno(cs),r,rs)) ELSE DameCoincidentesPal(DameUno(cs),valorEn(r,DameUno(cs)),Busca(SinUno(cs),r,rs)) FI} FI}
+\tadAxioma{Busca(cs,r,rs)}{\IF $\emptyset$?(SinUno(cs)) THEN {\IF tipo(DameUno(cs)) = Nat THEN DameCoincidentesVal(DameUno(cs),valorEn(r,DameUno(cs)),rs) ELSE DameCoincidentesPal(DameUno(cs),valorEn(r,DameUno(cs)),rs) FI} ELSE {\IF tipo(DameUno(cs)) = Nat THEN DameCoincidentesVal(DameUno(cs),valorEn(r,DameUno(cs)),Busca(SinUno(cs),r,rs)) ELSE DameCoincidentesPal(DameUno(cs),valorEn(r,DameUno(cs)),Busca(SinUno(cs),r,rs)) FI} FI}
 
 
 \end{tad}
