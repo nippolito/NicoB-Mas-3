@@ -65,7 +65,7 @@
 
 \tadOperacion{verJoin}{tabla $\quad$ $t_1$, tabla $\quad$ $t_2$, campo $\quad$ c, bdd $\quad$ b}{tabla}{$t_1$ $\in$ tablas(b) $\wedge$ $t_2$ $\in$ tablas(b) $\yluego$ c $\in$ CamposdeJoin($t_1$, $t_2$, b)}
 
-\tadOperacion{TabMasModificada}{bdd}{tabla}{$\neg\emptyset?$(tablas($b$))}
+\tadOperacion{TabMasModificada}{bdd $\quad$ b}{tabla}{$\neg\emptyset?$(tablas($b$))}
 
 \tadOperacion{MasMod}{conj(tabla) $\quad$ $ts$, bdd $\quad$ $b$}{tabla}{$ts \subseteq$tablas($b$)}
 \bigskip
